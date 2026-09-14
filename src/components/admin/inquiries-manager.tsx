@@ -24,41 +24,78 @@ const STATUS_LABEL: Record<InquiryStatus, string> = {
   perdu: "Perdu",
 };
 
-export function InquiriesManager() {
-  const [items, setItems] = useState<Inquiry[]>([]);
+export function InquiriesManager({ initialItems = [] }: { initialItems?: Inquiry[] }) {
+  const [items, setItems] = useState<Inquiry[]>(initialItems);
   const [filter, setFilter] = useState<InquiryStatus | "all">("all");
-  const [notes, setNotes] = useState<Record<string, string>>({});
+  const [notes, setNotes] = useState<Record<string, string>>(() =>
+    Object.fromEntries(initialItems.map((i) => [i.id, i.internalNote || ""])),
+  );
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const load = useCallback(async () => {
-    const res = await fetch("/api/inquiries");
-    const data: Inquiry[] = await res.json();
-    setItems(data);
-    setNotes(Object.fromEntries(data.map((i) => [i.id, i.internalNote || ""])));
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/inquiries", { cache: "no-store" });
+      if (!res.ok) throw new Error("Impossible de charger les demandes");
+      const data: Inquiry[] = await res.json();
+      if (!Array.isArray(data)) throw new Error("Réponse API invalide");
+      setItems(data);
+      setNotes(Object.fromEntries(data.map((i) => [i.id, i.internalNote || ""])));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Erreur de chargement");
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   useEffect(() => {
-    load();
+    void load();
   }, [load]);
 
   async function patch(id: string, body: Partial<Inquiry>) {
-    await fetch("/api/inquiries", {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id, ...body }),
-    });
-    await load();
+    setError("");
+    try {
+      const res = await fetch("/api/inquiries", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id, ...body }),
+      });
+      if (!res.ok) throw new Error("Mise à jour impossible");
+      await load();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Erreur");
+    }
   }
 
   const visible = filter === "all" ? items : items.filter((i) => i.status === filter);
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="font-display text-3xl font-semibold text-white">Demandes</h1>
-        <p className="mt-2 text-sm text-sand/65">
-          Pipeline commercial : nouveau → en cours → devis envoyé → gagné / perdu.
-        </p>
+      <div className="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <h1 className="font-display text-3xl font-semibold text-white">Demandes</h1>
+          <p className="mt-2 text-sm text-sand/65">
+            Pipeline commercial : nouveau → en cours → devis envoyé → gagné / perdu.
+          </p>
+        </div>
+        <Button
+          size="sm"
+          variant="outline"
+          className="border-white/20 bg-transparent text-sand hover:bg-white/10"
+          onClick={() => void load()}
+          disabled={loading}
+        >
+          {loading ? "Actualisation…" : "Actualiser"}
+        </Button>
       </div>
+
+      {error && (
+        <p className="rounded-md border border-red-400/30 bg-red-500/10 px-3 py-2 text-sm text-red-200">
+          {error}
+        </p>
+      )}
 
       <div className="flex flex-wrap gap-2">
         <FilterChip active={filter === "all"} onClick={() => setFilter("all")}>
@@ -77,7 +114,9 @@ export function InquiriesManager() {
 
       <div className="space-y-4">
         {visible.length === 0 ? (
-          <p className="text-sm text-sand/60">Aucune demande dans ce filtre.</p>
+          <p className="text-sm text-sand/60">
+            {loading ? "Chargement des demandes…" : "Aucune demande dans ce filtre."}
+          </p>
         ) : (
           visible.map((item) => {
             const division = DIVISIONS.find((d) => d.slug === item.division);
@@ -105,12 +144,14 @@ export function InquiriesManager() {
                       {item.city} · {item.phone}
                       {item.email ? ` · ${item.email}` : ""}
                     </p>
-                    <p className="mt-1 text-xs text-sand/40">{formatDate(item.createdAt)}</p>
+                    <p className="mt-1 text-xs text-sand/40">
+                      {formatDate(item.createdAt)} · {item.id}
+                    </p>
                   </div>
                   <select
                     value={item.status}
                     onChange={(e) =>
-                      patch(item.id, { status: e.target.value as InquiryStatus })
+                      void patch(item.id, { status: e.target.value as InquiryStatus })
                     }
                     className="h-8 rounded-lg border border-white/15 bg-[#0b2a18] px-2.5 text-sm text-sand"
                   >
@@ -144,7 +185,7 @@ export function InquiriesManager() {
                       size="sm"
                       className="bg-copper text-accent-foreground"
                       onClick={() =>
-                        patch(item.id, { internalNote: notes[item.id] || "" })
+                        void patch(item.id, { internalNote: notes[item.id] || "" })
                       }
                     >
                       Enregistrer la note
@@ -154,7 +195,7 @@ export function InquiriesManager() {
                       variant="outline"
                       className="border-white/20 bg-transparent text-sand hover:bg-white/10"
                       onClick={() =>
-                        patch(item.id, {
+                        void patch(item.id, {
                           priority: item.priority === "haute" ? "normale" : "haute",
                         })
                       }

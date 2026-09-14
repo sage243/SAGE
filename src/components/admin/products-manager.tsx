@@ -24,20 +24,24 @@ const emptyForm = {
   stockNote: "",
 };
 
-export function ProductsManager() {
-  const [offers, setOffers] = useState<Offer[]>([]);
+export function ProductsManager({ initialOffers = [] }: { initialOffers?: Offer[] }) {
+  const [offers, setOffers] = useState<Offer[]>(initialOffers);
   const [form, setForm] = useState(emptyForm);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
 
   const load = useCallback(async () => {
-    const res = await fetch("/api/products?admin=1");
+    const res = await fetch("/api/products?admin=1", { cache: "no-store" });
+    if (!res.ok) throw new Error("Chargement catalogue impossible");
     const data = await res.json();
+    if (!Array.isArray(data)) throw new Error("Réponse API invalide");
     setOffers(data);
   }, []);
 
   useEffect(() => {
-    load();
+    void load().catch((err) =>
+      setMessage(err instanceof Error ? err.message : "Erreur de chargement"),
+    );
   }, [load]);
 
   function edit(offer: Offer) {
