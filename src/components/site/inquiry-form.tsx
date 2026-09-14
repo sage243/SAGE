@@ -2,14 +2,18 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { DIVISIONS } from "@/lib/divisions";
 import type { DivisionSlug, Offer } from "@/lib/types";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+
+const fieldClass =
+  "h-9 w-full rounded-lg border border-input bg-background px-3 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50";
+
+const areaClass =
+  "min-h-28 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50";
 
 export function InquiryForm() {
   const searchParams = useSearchParams();
@@ -17,16 +21,31 @@ export function InquiryForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [error, setError] = useState("");
   const [createdId, setCreatedId] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [organization, setOrganization] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [city, setCity] = useState("Kinshasa");
+  const [priority, setPriority] = useState<"normale" | "haute">("normale");
+  const [message, setMessage] = useState("");
   const [division, setDivision] = useState<DivisionSlug>(
     (searchParams.get("division") as DivisionSlug) || "commerce-general",
   );
   const [offerId, setOfferId] = useState(searchParams.get("offer") || "");
 
   useEffect(() => {
+    let cancelled = false;
     fetch("/api/products")
       .then((r) => r.json())
-      .then((data: Offer[]) => setOffers(Array.isArray(data) ? data : []))
-      .catch(() => setOffers([]));
+      .then((data: Offer[]) => {
+        if (!cancelled) setOffers(Array.isArray(data) ? data : []);
+      })
+      .catch(() => {
+        if (!cancelled) setOffers([]);
+      });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const divisionOffers = useMemo(
@@ -40,26 +59,29 @@ export function InquiryForm() {
     }
   }, [divisionOffers, offerId]);
 
-  async function onSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const formEl = e.currentTarget;
+  async function submit() {
     setStatus("loading");
     setError("");
-    const form = new FormData(formEl);
-    const selectedOffer = offers.find((o) => o.id === offerId);
 
+    const selectedOffer = offers.find((o) => o.id === offerId);
     const payload = {
-      fullName: String(form.get("fullName") || "").trim(),
-      organization: String(form.get("organization") || "").trim(),
-      phone: String(form.get("phone") || "").trim(),
-      email: String(form.get("email") || "").trim(),
-      city: String(form.get("city") || "").trim(),
+      fullName: fullName.trim(),
+      organization: organization.trim() || undefined,
+      phone: phone.trim(),
+      email: email.trim() || undefined,
+      city: city.trim(),
       division,
       offerId: offerId || undefined,
       offerName: selectedOffer?.name,
-      message: String(form.get("message") || "").trim(),
-      priority: form.get("priority") === "haute" ? "haute" : "normale",
+      message: message.trim(),
+      priority,
     };
+
+    if (!payload.fullName || !payload.phone || !payload.city || !payload.message) {
+      setStatus("error");
+      setError("Veuillez remplir les champs obligatoires.");
+      return;
+    }
 
     try {
       const res = await fetch("/api/inquiries", {
@@ -73,7 +95,13 @@ export function InquiryForm() {
       }
       setCreatedId(data.id || "");
       setOfferId("");
-      formEl.reset();
+      setFullName("");
+      setOrganization("");
+      setPhone("");
+      setEmail("");
+      setCity("Kinshasa");
+      setPriority("normale");
+      setMessage("");
       setStatus("success");
     } catch (err) {
       setStatus("error");
@@ -100,6 +128,7 @@ export function InquiryForm() {
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Button
+            type="button"
             onClick={() => {
               setCreatedId("");
               setStatus("idle");
@@ -119,20 +148,65 @@ export function InquiryForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-5 border border-primary/10 bg-white/70 p-6 sm:p-8">
+    <div className="space-y-5 border border-primary/10 bg-white/70 p-6 sm:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
-        <Field label="Nom complet *" name="fullName" required />
-        <Field label="Organisation" name="organization" />
-        <Field label="Téléphone *" name="phone" required placeholder="+243 …" />
-        <Field label="Email" name="email" type="email" />
-        <Field label="Ville *" name="city" required defaultValue="Kinshasa" />
+        <div className="space-y-2">
+          <Label htmlFor="fullName">Nom complet *</Label>
+          <input
+            id="fullName"
+            className={fieldClass}
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+            required
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="organization">Organisation</Label>
+          <input
+            id="organization"
+            className={fieldClass}
+            value={organization}
+            onChange={(e) => setOrganization(e.target.value)}
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="phone">Téléphone *</Label>
+          <input
+            id="phone"
+            className={fieldClass}
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder="+243 …"
+            required
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="email">Email</Label>
+          <input
+            id="email"
+            type="email"
+            className={fieldClass}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="city">Ville *</Label>
+          <input
+            id="city"
+            className={fieldClass}
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            required
+          />
+        </div>
         <div className="space-y-2">
           <Label htmlFor="priority">Priorité</Label>
           <select
             id="priority"
-            name="priority"
-            className="h-8 w-full rounded-lg border border-input bg-background px-2.5 text-sm"
-            defaultValue="normale"
+            className={fieldClass}
+            value={priority}
+            onChange={(e) => setPriority(e.target.value as "normale" | "haute")}
           >
             <option value="normale">Normale</option>
             <option value="haute">Haute</option>
@@ -147,7 +221,7 @@ export function InquiryForm() {
             id="division"
             value={division}
             onChange={(e) => setDivision(e.target.value as DivisionSlug)}
-            className="h-8 w-full rounded-lg border border-input bg-background px-2.5 text-sm"
+            className={fieldClass}
             required
           >
             {DIVISIONS.map((d) => (
@@ -163,7 +237,7 @@ export function InquiryForm() {
             id="offer"
             value={offerId}
             onChange={(e) => setOfferId(e.target.value)}
-            className="h-8 w-full rounded-lg border border-input bg-background px-2.5 text-sm"
+            className={fieldClass}
           >
             <option value="">Demande générale</option>
             {divisionOffers.map((o) => (
@@ -177,9 +251,11 @@ export function InquiryForm() {
 
       <div className="space-y-2">
         <Label htmlFor="message">Besoin / message *</Label>
-        <Textarea
+        <textarea
           id="message"
-          name="message"
+          className={areaClass}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
           required
           rows={5}
           placeholder="Volumes, délais, localisation, contraintes…"
@@ -192,39 +268,9 @@ export function InquiryForm() {
         </p>
       )}
 
-      <Button type="submit" size="lg" disabled={status === "loading"}>
+      <Button type="button" size="lg" disabled={status === "loading"} onClick={() => void submit()}>
         {status === "loading" ? "Envoi…" : "Envoyer la demande"}
       </Button>
-    </form>
-  );
-}
-
-function Field({
-  label,
-  name,
-  required,
-  type = "text",
-  placeholder,
-  defaultValue,
-}: {
-  label: string;
-  name: string;
-  required?: boolean;
-  type?: string;
-  placeholder?: string;
-  defaultValue?: string;
-}) {
-  return (
-    <div className="space-y-2">
-      <Label htmlFor={name}>{label}</Label>
-      <Input
-        id={name}
-        name={name}
-        type={type}
-        required={required}
-        placeholder={placeholder}
-        defaultValue={defaultValue}
-      />
     </div>
   );
 }
