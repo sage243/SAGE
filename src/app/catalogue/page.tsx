@@ -39,7 +39,7 @@ export default async function CataloguePage({ searchParams }: Props) {
         Catalogue produits & services
       </h1>
       <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-        Priorité opérationnelle : alimentation (références Marsavco & Beltexco) et distribution de
+        Priorité opérationnelle : alimentation (tarifs Marsavco & Beltexco) et distribution de
         vivres. Les autres activités Article 2 restent visibles mais non opérationnalisées.
       </p>
 

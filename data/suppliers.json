@@ -2,27 +2,27 @@
   {
     "id": "sup_marsavco_01",
     "code": "FRN-MSV",
-    "legalName": "MARSAVCO S.A.",
-    "contactPerson": "Direction Commerciale & Service des Ventes",
+    "legalName": "MARSAVCO S.A. (Margarinerie, Savonnerie et Cosmétique)",
+    "contactPerson": "Service Commercial",
     "phone": "+243 810 448 972",
-    "email": "sales.kinshasa@marsavco.com",
-    "address": "01, Avenue Kalemie, Commune de la Gombe — B.P. 8914, Kinshasa I",
+    "email": "sales@marsavco.com",
+    "address": "Avenue Kalemie n° 1, Commune de la Gombe, Kinshasa",
     "city": "Kinshasa",
     "paymentTermsDays": 21,
     "productCategories": [
-      "huiles",
-      "margarine",
       "alimentaire",
-      "savons",
+      "hygiene",
+      "entretien",
       "detergents",
-      "hygiene"
+      "margarine",
+      "huiles"
     ],
     "status": "actif",
-    "notes": "Contacts officiels : Tél. +243 810 448 972 / +243 818 971 666 · sales.kinshasa@marsavco.com ; info@marsavco.com. Correspondance sortante SAGE-RDC/DG/2026/001 (09/09/2026) — demande catalogue, grille tarifaire gros, remises volume, CGV et ouverture de compte. Statut : en attente de réponse MARSAVCO.",
+    "notes": "Tarif général de gros & catalogue produits 2026 (DOCX). Prix USD HT — payable aussi en CDF au taux BCC. Source: docs/catalogues/MARSAVCO_SA_TARIF_GROS_2026.docx",
     "outstandingBalance": 0,
     "outstandingCurrency": "USD",
     "createdAt": "2026-09-15T17:07:27.000Z",
-    "updatedAt": "2026-09-15T17:08:44.000Z"
+    "updatedAt": "2026-09-15T17:10:32.000Z"
   },
   {
     "id": "sup_beltexco_01",
