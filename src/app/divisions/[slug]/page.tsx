@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getDivision, DIVISIONS } from "@/lib/divisions";
-import { listOffers } from "@/lib/store";
+import { listProducts } from "@/lib/masters";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -26,8 +26,8 @@ export default async function DivisionDetailPage({ params }: Props) {
   const division = getDivision(slug);
   if (!division) notFound();
 
-  const offers = (await listOffers()).filter(
-    (o) => o.division === division.slug && o.status === "active",
+  const offers = (await listProducts()).filter(
+    (o) => o.activity === division.slug && o.status === "active" && o.publicVisible,
   );
 
   return (

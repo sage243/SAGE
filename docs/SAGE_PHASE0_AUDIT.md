@@ -252,4 +252,18 @@ Priority scenarios to unlock in Phases 2–4:
 - [x] KEEP / IMPROVE / MERGE / REMOVE / BUILD defined  
 - [x] Roadmap ordered per master prompt  
 - [x] Target architecture documented  
-- [ ] Implementation starts only after stakeholder go-ahead on Phase 1a scope
+- [x] Implementation starts only after stakeholder go-ahead on Phase 1a scope
+
+---
+
+## 9. Phase 1a progress (implemented after audit)
+
+Delivered in-repo:
+
+- `/gestion` authenticated area (`admin` / `sage2026` MVP cookie auth)
+- Masters: clients, fournisseurs, produits (landed cost), entrepôts, FX CDF/USD
+- Public home reframed: **current** cash engine vs **future** Article 2 activities
+- Catalogue + devis wired to Product Master (`products-master`)
+- Legacy `/admin` redirects into `/gestion` (demandes kept temporarily)
+
+Next: Phase 2 procurement & stock movements.

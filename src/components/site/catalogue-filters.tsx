@@ -56,7 +56,7 @@ export function CatalogueFilters({
         </div>
         <p className="text-sm text-muted-foreground">
           {total} offre{total > 1 ? "s" : ""} ·{" "}
-          <Link href="/admin/produits" className="font-medium text-primary hover:underline">
+          <Link href="/gestion/produits" className="font-medium text-primary hover:underline">
             Gérer
           </Link>
         </p>

@@ -15,17 +15,16 @@ import {
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "/divisions", label: "Divisions" },
+  { href: "/divisions", label: "Activités" },
   { href: "/catalogue", label: "Catalogue" },
-  { href: "/devis", label: "Demande" },
-  { href: "/plan", label: "Plan réaliste" },
+  { href: "/devis", label: "Devis" },
   { href: "/contact", label: "Contact" },
 ];
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const isAdmin = pathname.startsWith("/admin");
+  const isAdmin = pathname.startsWith("/admin") || pathname.startsWith("/gestion");
 
   if (isAdmin) return null;
 
@@ -57,13 +56,13 @@ export function SiteHeader() {
             </Link>
           ))}
           <Link
-            href="/admin"
+            href="/gestion"
             className={cn(
               buttonVariants({ size: "sm" }),
               "ml-2 bg-accent text-accent-foreground hover:bg-accent/90",
             )}
           >
-            Console
+            Gestion
           </Link>
         </nav>
 
@@ -90,11 +89,11 @@ export function SiteHeader() {
                   </Link>
                 ))}
                 <Link
-                  href="/admin"
+                  href="/gestion"
                   onClick={() => setOpen(false)}
                   className="mt-2 rounded-md bg-primary px-3 py-3 text-base font-medium text-primary-foreground"
                 >
-                  Console ops
+                  Espace gestion
                 </Link>
               </div>
             </SheetContent>

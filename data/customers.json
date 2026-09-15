@@ -1,0 +1,51 @@
+[
+  {
+    "id": "cus_hotel_01",
+    "code": "CLI-001",
+    "type": "entreprise",
+    "legalName": "Hôtel Riviera Gombe",
+    "contactPerson": "Amina Kabongo",
+    "phone": "+243 812 345 678",
+    "whatsapp": "+243 812 345 678",
+    "email": "achats@riviera.cd",
+    "address": "Gombe",
+    "city": "Kinshasa",
+    "creditLimit": 2000,
+    "creditLimitCurrency": "USD",
+    "paymentTermsDays": 15,
+    "assignedSalesperson": "Équipe Commerce",
+    "status": "actif",
+    "createdAt": "2026-09-05T10:00:00.000Z",
+    "updatedAt": "2026-09-05T10:00:00.000Z"
+  },
+  {
+    "id": "cus_cantine_01",
+    "code": "CLI-002",
+    "type": "entreprise",
+    "legalName": "Cantine Enterprise Solutions",
+    "contactPerson": "Jean Batumike",
+    "phone": "+243 850 777 888",
+    "city": "Kinshasa",
+    "creditLimit": 800,
+    "creditLimitCurrency": "USD",
+    "paymentTermsDays": 7,
+    "status": "actif",
+    "createdAt": "2026-09-06T10:00:00.000Z",
+    "updatedAt": "2026-09-06T10:00:00.000Z"
+  },
+  {
+    "id": "cus_part_01",
+    "code": "CLI-003",
+    "type": "particulier",
+    "legalName": "Famille Mwamba",
+    "phone": "+243 970 111 000",
+    "city": "Kinshasa",
+    "creditLimit": 0,
+    "creditLimitCurrency": "USD",
+    "paymentTermsDays": 0,
+    "status": "actif",
+    "notes": "Client paniers vivres hebdomadaires",
+    "createdAt": "2026-09-07T10:00:00.000Z",
+    "updatedAt": "2026-09-07T10:00:00.000Z"
+  }
+]

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { DIVISIONS } from "@/lib/divisions";
-import { listOffers } from "@/lib/store";
+import { listProducts } from "@/lib/masters";
 import { buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -9,7 +9,12 @@ import { cn } from "@/lib/utils";
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const offers = (await listOffers()).filter((o) => o.status === "active" && o.featured).slice(0, 3);
+  const current = DIVISIONS.filter((d) => d.priority === 1);
+  const future = DIVISIONS.filter((d) => d.priority !== 1);
+  const products = (await listProducts())
+    .filter((p) => p.status === "active" && p.publicVisible && p.featured)
+    .filter((p) => current.some((d) => d.slug === p.activity))
+    .slice(0, 3);
 
   return (
     <>
@@ -24,66 +29,50 @@ export default async function HomePage() {
             <span className="block text-copper">FOR EXCELLENCE</span>
           </h1>
           <p className="animate-rise-delay mt-5 max-w-xl text-base leading-relaxed text-sand/85 sm:text-lg">
-            Plateforme unique pour publier, cotationner et suivre les produits et services de
-            SAGE — alignée sur l’objet social de l’Article 2.
+            Commerce et distribution de vivres d’abord — avec une plateforme de gestion pour vendre,
+            stocker, livrer et encaisser.
           </p>
           <div className="animate-rise-delay-2 mt-8 flex flex-wrap gap-3">
             <Link
               href="/catalogue"
               className={cn(buttonVariants({ size: "lg" }), "bg-copper text-accent-foreground hover:bg-copper/90")}
             >
-              Voir le catalogue
+              Catalogue actuel
               <ArrowRight className="size-4" />
             </Link>
             <Link
-              href="/plan"
+              href="/gestion"
               className={cn(
                 buttonVariants({ size: "lg", variant: "outline" }),
                 "border-sand/40 bg-transparent text-sand hover:bg-white/10 hover:text-white",
               )}
             >
-              Plan réaliste
+              Espace gestion
             </Link>
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-        <div className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">Article 2</p>
-          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-sage-deep sm:text-4xl">
-            Six lignes d’activité, une console.
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Avec un capital de 5&nbsp;000&nbsp;USD, SAGE ne digitalise pas six secteurs d’un coup.
-            La plateforme unifie la vitrine et le pipeline commercial, puis priorise les moteurs
-            de cash.
-          </p>
-        </div>
-
-        <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-          {DIVISIONS.map((division, index) => (
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">
+          Activités actuelles
+        </p>
+        <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-sage-deep sm:text-4xl">
+          Le moteur de cash SAGE
+        </h2>
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+          Priorité 1 : commerce général et distribution urbaine de vivres / restauration — cycles
+          de trésorerie courts.
+        </p>
+        <div className="mt-10 grid gap-8 sm:grid-cols-2">
+          {current.map((division) => (
             <Link
               key={division.slug}
               href={`/divisions/${division.slug}`}
-              className="group border-t border-primary/15 pt-5 transition-colors hover:border-copper"
-              style={{ animationDelay: `${index * 60}ms` }}
+              className="border-t-2 border-copper pt-5"
             >
-              <div className="flex items-center justify-between gap-3">
-                <span
-                  className="inline-block size-2.5 rounded-full"
-                  style={{ backgroundColor: division.accent }}
-                />
-                <Badge variant="secondary" className="text-[10px] uppercase tracking-wider">
-                  Phase {division.phase}
-                </Badge>
-              </div>
-              <h3 className="mt-4 font-display text-xl font-semibold text-sage-deep group-hover:text-primary">
-                {division.name}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {division.summary}
-              </p>
+              <h3 className="font-display text-2xl font-semibold text-sage-deep">{division.name}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{division.summary}</p>
             </Link>
           ))}
         </div>
@@ -97,74 +86,57 @@ export default async function HomePage() {
                 Offres prioritaires
               </p>
               <h2 className="mt-2 font-display text-3xl font-semibold text-sage-deep">
-                Ce qui peut générer du cash maintenant
+                Vivres & commerce
               </h2>
             </div>
             <Link href="/catalogue" className="text-sm font-semibold text-primary hover:underline">
               Catalogue complet →
             </Link>
           </div>
-
           <div className="mt-10 grid gap-8 md:grid-cols-3">
-            {offers.map((offer) => {
-              const division = DIVISIONS.find((d) => d.slug === offer.division);
-              return (
-                <article key={offer.id} className="border-l-2 border-primary/30 pl-5">
-                  <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                    {division?.shortName} · {offer.kind === "product" ? "Produit" : "Service"}
-                  </p>
-                  <h3 className="mt-2 font-display text-xl font-semibold text-sage-deep">
-                    {offer.name}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {offer.description}
-                  </p>
-                  <p className="mt-4 text-sm font-semibold text-copper">{offer.priceLabel}</p>
-                </article>
-              );
-            })}
+            {products.map((product) => (
+              <article key={product.id} className="border-l-2 border-primary/30 pl-5">
+                <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                  {product.sku}
+                </p>
+                <h3 className="mt-2 font-display text-xl font-semibold text-sage-deep">
+                  {product.name}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {product.description}
+                </p>
+                <p className="mt-4 text-sm font-semibold text-copper">{product.priceLabel}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">
-              Fonctionnalités Phase 1
-            </p>
-            <h2 className="mt-3 font-display text-3xl font-semibold text-sage-deep sm:text-4xl">
-              Gérer l’offre SAGE en ligne, sans surinvestir.
-            </h2>
-            <ul className="mt-6 space-y-3 text-sm leading-relaxed text-foreground/85">
-              <li>— Catalogue multi-divisions (produits & services)</li>
-              <li>— Demandes de devis / leads avec pipeline commercial</li>
-              <li>— Console ops pour publier, archiver et prioriser</li>
-              <li>— Feuille de route réaliste liée au capital et à l’Article 2</li>
-            </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/devis" className={cn(buttonVariants({ size: "lg" }))}>
-                Faire une demande
-              </Link>
-              <Link href="/admin" className={cn(buttonVariants({ size: "lg", variant: "outline" }))}>
-                Ouvrir la console
-              </Link>
-            </div>
-          </div>
-          <div className="relative overflow-hidden rounded-sm bg-sage-deep p-8 text-sand shadow-[0_24px_60px_-30px_rgba(5,46,22,0.65)]">
-            <div className="absolute -right-8 -top-8 size-40 rounded-full bg-copper/20 blur-2xl" />
-            <p className="relative text-xs font-semibold uppercase tracking-[0.2em] text-copper">
-              Principe directeur
-            </p>
-            <p className="relative mt-4 font-display text-2xl leading-snug font-semibold">
-              Une plateforme corporate d’abord. Le e-commerce vertical vient après les premiers
-              flux de trésorerie.
-            </p>
-            <p className="relative mt-4 text-sm leading-relaxed text-sand/75">
-              Objectif : centraliser la demande commerciale de SAGE tout en séquençant les
-              investissements digitaux selon le cycle de cash de chaque division.
-            </p>
-          </div>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">
+          Activités futures
+        </p>
+        <h2 className="mt-3 font-display text-3xl font-semibold text-sage-deep">
+          Article 2 — développement ultérieur
+        </h2>
+        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          Voyage, pharma/pétrole, agro et immobilier restent dans l’objet social mais ne sont pas
+          opérationnalisés dans la plateforme pour l’instant.
+        </p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          {future.map((d) => (
+            <Badge key={d.slug} variant="outline" className="px-3 py-1.5 text-sm">
+              {d.shortName}
+            </Badge>
+          ))}
+        </div>
+        <div className="mt-10 flex flex-wrap gap-3">
+          <Link href="/devis" className={cn(buttonVariants({ size: "lg" }))}>
+            Demander un devis
+          </Link>
+          <Link href="/plan" className={cn(buttonVariants({ size: "lg", variant: "outline" }))}>
+            Voir le plan
+          </Link>
         </div>
       </section>
     </>

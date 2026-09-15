@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { DIVISIONS } from "@/lib/divisions";
-import type { DivisionSlug, Offer } from "@/lib/types";
+import type { Product } from "@/lib/domain";
+import type { DivisionSlug } from "@/lib/types";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
@@ -17,7 +18,7 @@ const areaClass =
 
 export function InquiryForm() {
   const searchParams = useSearchParams();
-  const [offers, setOffers] = useState<Offer[]>([]);
+  const [offers, setOffers] = useState<Product[]>([]);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [error, setError] = useState("");
   const [createdId, setCreatedId] = useState("");
@@ -29,15 +30,15 @@ export function InquiryForm() {
   const [priority, setPriority] = useState<"normale" | "haute">("normale");
   const [message, setMessage] = useState("");
   const [division, setDivision] = useState<DivisionSlug>(
-    (searchParams.get("division") as DivisionSlug) || "commerce-general",
+    (searchParams.get("division") as DivisionSlug) || "restauration-vivres",
   );
   const [offerId, setOfferId] = useState(searchParams.get("offer") || "");
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/api/products")
+    fetch("/api/products-master")
       .then((r) => r.json())
-      .then((data: Offer[]) => {
+      .then((data: Product[]) => {
         if (!cancelled) setOffers(Array.isArray(data) ? data : []);
       })
       .catch(() => {
@@ -49,7 +50,7 @@ export function InquiryForm() {
   }, []);
 
   const divisionOffers = useMemo(
-    () => offers.filter((o) => o.division === division),
+    () => offers.filter((o) => o.activity === division),
     [offers, division],
   );
 

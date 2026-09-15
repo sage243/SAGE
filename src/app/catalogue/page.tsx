@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { DIVISIONS } from "@/lib/divisions";
-import { listOffers } from "@/lib/store";
+import { listProducts } from "@/lib/masters";
 import { Badge } from "@/components/ui/badge";
 import { CatalogueFilters } from "@/components/site/catalogue-filters";
 
@@ -9,21 +9,28 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Catalogue",
-  description: "Produits et services SAGE par division.",
+  description: "Produits et services SAGE — commerce & distribution prioritaires.",
 };
 
 type Props = { searchParams: Promise<{ division?: string; kind?: string }> };
 
 export default async function CataloguePage({ searchParams }: Props) {
   const params = await searchParams;
-  let offers = (await listOffers()).filter((o) => o.status === "active");
+  let products = (await listProducts()).filter((p) => p.status === "active" && p.publicVisible);
 
   if (params.division) {
-    offers = offers.filter((o) => o.division === params.division);
+    products = products.filter((p) => p.activity === params.division);
   }
   if (params.kind === "product" || params.kind === "service") {
-    offers = offers.filter((o) => o.kind === params.kind);
+    products = products.filter((p) => p.kind === params.kind);
   }
+
+  // Surface current cash-engine products first
+  products = [...products].sort((a, b) => {
+    const pa = DIVISIONS.find((d) => d.slug === a.activity)?.priority ?? 9;
+    const pb = DIVISIONS.find((d) => d.slug === b.activity)?.priority ?? 9;
+    return pa - pb;
+  });
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
@@ -32,55 +39,49 @@ export default async function CataloguePage({ searchParams }: Props) {
         Catalogue produits & services
       </h1>
       <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-        Vitrine unique multi-divisions. Les prix affichés sont indicatifs ; la plupart des
-        opérations B2B passent par devis.
+        Priorité opérationnelle : commerce et distribution de vivres. Les autres activités Article 2
+        restent visibles mais non opérationnalisées.
       </p>
 
-      <CatalogueFilters
-        division={params.division}
-        kind={params.kind}
-        total={offers.length}
-      />
+      <CatalogueFilters division={params.division} kind={params.kind} total={products.length} />
 
-      {offers.length === 0 ? (
+      {products.length === 0 ? (
         <div className="mt-12 border border-dashed border-primary/20 p-10 text-center">
           <p className="font-display text-xl text-sage-deep">Aucune offre pour ce filtre</p>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Essayez une autre division ou réinitialisez les filtres.
-          </p>
           <Link href="/catalogue" className="mt-4 inline-block text-sm font-semibold text-primary">
             Réinitialiser
           </Link>
         </div>
       ) : (
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {offers.map((offer) => {
-            const division = DIVISIONS.find((d) => d.slug === offer.division);
+          {products.map((product) => {
+            const division = DIVISIONS.find((d) => d.slug === product.activity);
+            const isCurrent = (division?.priority ?? 9) === 1;
             return (
               <article
-                key={offer.id}
-                className="flex flex-col border border-primary/10 bg-white/70 p-5 transition-shadow hover:shadow-[0_18px_40px_-28px_rgba(20,83,45,0.45)]"
+                key={product.id}
+                className="flex flex-col border border-primary/10 bg-white/70 p-5"
               >
                 <div className="flex flex-wrap gap-2">
                   <Badge variant="secondary">{division?.shortName}</Badge>
                   <Badge variant="outline">
-                    {offer.kind === "product" ? "Produit" : "Service"}
+                    {product.kind === "product" ? "Produit" : "Service"}
                   </Badge>
-                  {offer.featured && <Badge className="bg-copper text-accent-foreground">Prioritaire</Badge>}
+                  <Badge variant={isCurrent ? "default" : "outline"}>
+                    {isCurrent ? "Activité actuelle" : "Développement"}
+                  </Badge>
                 </div>
                 <h2 className="mt-4 font-display text-xl font-semibold text-sage-deep">
-                  {offer.name}
+                  {product.name}
                 </h2>
+                <p className="mt-1 text-xs text-muted-foreground">{product.sku}</p>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-                  {offer.description}
+                  {product.description}
                 </p>
-                {offer.stockNote && (
-                  <p className="mt-3 text-xs text-foreground/70">Stock : {offer.stockNote}</p>
-                )}
                 <div className="mt-5 flex items-center justify-between gap-3 border-t border-primary/10 pt-4">
-                  <p className="text-sm font-semibold text-copper">{offer.priceLabel}</p>
+                  <p className="text-sm font-semibold text-copper">{product.priceLabel}</p>
                   <Link
-                    href={`/devis?division=${offer.division}&offer=${offer.id}`}
+                    href={`/devis?division=${product.activity}&offer=${product.id}`}
                     className="text-sm font-semibold text-primary hover:underline"
                   >
                     Demander →

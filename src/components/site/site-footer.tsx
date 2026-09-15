@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 export function SiteFooter() {
   const pathname = usePathname();
-  if (pathname.startsWith("/admin")) return null;
+  if (pathname.startsWith("/admin") || pathname.startsWith("/gestion")) return null;
 
   return (
     <footer className="border-t border-primary/10 bg-sage-deep text-sand">
@@ -43,8 +43,8 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
-              <Link href="/admin" className="hover:text-white">
-                Console ops
+              <Link href="/gestion" className="hover:text-white">
+                Espace gestion
               </Link>
             </li>
           </ul>
