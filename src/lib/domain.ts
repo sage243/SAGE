@@ -242,7 +242,7 @@ export interface StockMovement {
   unitOfMeasure: string;
   unitCost: number;
   currency: CurrencyCode;
-  referenceType?: "purchase_order" | "goods_receipt" | "adjustment" | "opening";
+  referenceType?: "purchase_order" | "goods_receipt" | "adjustment" | "opening" | "sales_order" | "delivery";
   referenceId?: string;
   referenceNumber?: string;
   reason?: string;
@@ -258,9 +258,171 @@ export interface StockBalance {
   warehouseId: string;
   warehouseName: string;
   quantityOnHand: number;
+  /** Soft reservation for approved sales orders */
+  quantityReserved?: number;
   unitOfMeasure: string;
   averageUnitCost: number;
   currency: CurrencyCode;
   reorderLevel: number;
   updatedAt: string;
+}
+
+export type SalesDocStatus = DocStatus | "invoiced";
+
+export interface SalesLine {
+  id: string;
+  productId: string;
+  sku: string;
+  productName: string;
+  quantity: number;
+  quantityDelivered: number;
+  unitOfMeasure: string;
+  unitPrice: number;
+  currency: CurrencyCode;
+  /** Cost basis frozen at confirmation / delivery */
+  unitCost: number;
+  lineTotal: number;
+  grossProfit: number;
+  marginPct: number;
+}
+
+export interface Quotation {
+  id: string;
+  number: string;
+  customerId: string;
+  customerName: string;
+  warehouseId: string;
+  warehouseName: string;
+  status: Extract<DocStatus, "draft" | "approved" | "cancelled" | "posted">;
+  currency: CurrencyCode;
+  exchangeRate: number;
+  quotedAt: string;
+  validUntil?: string;
+  notes?: string;
+  lines: SalesLine[];
+  subtotal: number;
+  totalCost: number;
+  grossProfit: number;
+  marginPct: number;
+  salesOrderId?: string;
+  createdAt: string;
+  updatedAt: string;
+  approvedAt?: string;
+}
+
+export interface SalesOrder {
+  id: string;
+  number: string;
+  quotationId?: string;
+  quotationNumber?: string;
+  customerId: string;
+  customerName: string;
+  warehouseId: string;
+  warehouseName: string;
+  status: SalesDocStatus;
+  currency: CurrencyCode;
+  exchangeRate: number;
+  orderedAt: string;
+  promisedAt?: string;
+  notes?: string;
+  lines: SalesLine[];
+  subtotal: number;
+  totalCost: number;
+  grossProfit: number;
+  marginPct: number;
+  createdAt: string;
+  updatedAt: string;
+  approvedAt?: string;
+  postedAt?: string;
+}
+
+export interface DeliveryLine {
+  id: string;
+  salesLineId: string;
+  productId: string;
+  sku: string;
+  productName: string;
+  quantity: number;
+  unitOfMeasure: string;
+  unitPrice: number;
+  unitCost: number;
+  currency: CurrencyCode;
+}
+
+export interface Delivery {
+  id: string;
+  number: string;
+  salesOrderId: string;
+  salesOrderNumber: string;
+  customerId: string;
+  customerName: string;
+  warehouseId: string;
+  warehouseName: string;
+  status: Extract<DocStatus, "draft" | "posted" | "cancelled">;
+  deliveredAt: string;
+  notes?: string;
+  lines: DeliveryLine[];
+  createdAt: string;
+  updatedAt: string;
+  postedAt?: string;
+  invoiceId?: string;
+}
+
+export interface InvoiceLine {
+  id: string;
+  productId: string;
+  sku: string;
+  productName: string;
+  quantity: number;
+  unitOfMeasure: string;
+  unitPrice: number;
+  /** Frozen cost basis */
+  unitCost: number;
+  currency: CurrencyCode;
+  lineTotal: number;
+  grossProfit: number;
+  marginPct: number;
+}
+
+export interface Invoice {
+  id: string;
+  number: string;
+  salesOrderId: string;
+  salesOrderNumber: string;
+  deliveryId?: string;
+  deliveryNumber?: string;
+  customerId: string;
+  customerName: string;
+  status: Extract<DocStatus, "draft" | "posted" | "cancelled"> | "paid" | "partial";
+  currency: CurrencyCode;
+  exchangeRate: number;
+  invoicedAt: string;
+  dueAt?: string;
+  notes?: string;
+  lines: InvoiceLine[];
+  subtotal: number;
+  totalCost: number;
+  grossProfit: number;
+  marginPct: number;
+  amountPaid: number;
+  balanceDue: number;
+  createdAt: string;
+  updatedAt: string;
+  postedAt?: string;
+}
+
+export interface Payment {
+  id: string;
+  number: string;
+  invoiceId: string;
+  invoiceNumber: string;
+  customerId: string;
+  customerName: string;
+  amount: number;
+  currency: CurrencyCode;
+  exchangeRate: number;
+  method: "cash" | "mobile_money" | "bank_transfer" | "cheque";
+  paidAt: string;
+  notes?: string;
+  createdAt: string;
 }

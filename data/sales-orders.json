@@ -1,0 +1,57 @@
+[
+  {
+    "id": "so_qy9vylrh6v",
+    "number": "SO-2026-0001",
+    "quotationId": "qt_ozuaxvrgzo",
+    "quotationNumber": "DV-2026-0001",
+    "customerId": "cus_hotel_01",
+    "customerName": "Hôtel Riviera Gombe",
+    "warehouseId": "wh_limete_01",
+    "warehouseName": "Entrepôt Limete",
+    "status": "posted",
+    "currency": "USD",
+    "exchangeRate": 2850,
+    "orderedAt": "2026-09-15T17:18:41.863Z",
+    "notes": "Démo Phase 3 Hôtel Riviera",
+    "lines": [
+      {
+        "id": "sl_n3w39frh6r",
+        "productId": "prd_msv_ali_sb_001",
+        "sku": "ALI-SB-001",
+        "productName": "Simba — Huile végétale raffinée pure (Bidon 5L)",
+        "quantity": 4,
+        "quantityDelivered": 4,
+        "unitOfMeasure": "bidon",
+        "unitPrice": 10.33,
+        "currency": "USD",
+        "unitCost": 9.84,
+        "lineTotal": 41.32,
+        "grossProfit": 1.96,
+        "marginPct": 4.7435
+      },
+      {
+        "id": "sl_fzdfbfrh6v",
+        "productId": "prd_msv_ali_bb_001",
+        "sku": "ALI-BB-001",
+        "productName": "Blue Band — Margarine enrichie 8 vitamines (Boîte 250g)",
+        "quantity": 12,
+        "quantityDelivered": 12,
+        "unitOfMeasure": "boîte",
+        "unitPrice": 1.2,
+        "currency": "USD",
+        "unitCost": 1.14,
+        "lineTotal": 14.4,
+        "grossProfit": 0.72,
+        "marginPct": 5
+      }
+    ],
+    "subtotal": 55.72,
+    "totalCost": 53.04,
+    "grossProfit": 2.68,
+    "marginPct": 4.8098,
+    "createdAt": "2026-09-15T17:18:41.863Z",
+    "updatedAt": "2026-09-15T17:18:42.223Z",
+    "approvedAt": "2026-09-15T17:18:41.961Z",
+    "postedAt": "2026-09-15T17:18:42.223Z"
+  }
+]

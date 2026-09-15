@@ -1,0 +1,16 @@
+[
+  {
+    "id": "pay_z6f1s4rheo",
+    "number": "PA-2026-0001",
+    "invoiceId": "inv_kjelhlrhdj",
+    "invoiceNumber": "FA-2026-0001",
+    "customerId": "cus_hotel_01",
+    "customerName": "Hôtel Riviera Gombe",
+    "amount": 35.06,
+    "currency": "USD",
+    "exchangeRate": 2850,
+    "method": "mobile_money",
+    "paidAt": "2026-09-15T17:18:42.144Z",
+    "createdAt": "2026-09-15T17:18:42.144Z"
+  }
+]

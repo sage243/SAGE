@@ -81,6 +81,8 @@ export async function applyStockDelta(input: {
   referenceNumber?: string;
   reason?: string;
   createdBy?: string;
+  /** When issuing against a reservation, reduce reserved qty too */
+  releaseReserved?: number;
 }) {
   if (!Number.isFinite(input.quantity) || input.quantity <= 0) {
     throw new Error("Quantité invalide");
@@ -111,6 +113,7 @@ export async function applyStockDelta(input: {
       warehouseId: input.warehouse.id,
       warehouseName: input.warehouse.name,
       quantityOnHand: Math.max(0, nextQty),
+      quantityReserved: 0,
       unitOfMeasure: input.product.unitOfMeasure,
       averageUnitCost: input.unitCost,
       currency: input.currency,
@@ -126,6 +129,9 @@ export async function applyStockDelta(input: {
       bal.averageUnitCost = (prevValue + addValue) / nextQty;
     }
     bal.quantityOnHand = Math.max(0, nextQty);
+    if (input.releaseReserved && input.releaseReserved > 0) {
+      bal.quantityReserved = Math.max(0, (bal.quantityReserved || 0) - input.releaseReserved);
+    }
     bal.productName = input.product.name;
     bal.sku = input.product.sku;
     bal.warehouseName = input.warehouse.name;
@@ -169,6 +175,45 @@ export async function applyStockDelta(input: {
     createdAt: now,
     createdBy: input.createdBy || "gestion",
   });
+}
+
+export async function reserveStock(input: {
+  productId: string;
+  warehouseId: string;
+  quantity: number;
+}) {
+  const balances = await listStockBalances();
+  const bal = balances.find(
+    (b) => b.productId === input.productId && b.warehouseId === input.warehouseId,
+  );
+  if (!bal) throw new Error("Solde stock introuvable pour réservation");
+  const reserved = bal.quantityReserved || 0;
+  const available = bal.quantityOnHand - reserved;
+  if (input.quantity > available + 0.0001) {
+    throw new Error(
+      `Stock disponible insuffisant pour ${bal.sku} (dispo ${available}, demandé ${input.quantity})`,
+    );
+  }
+  bal.quantityReserved = reserved + input.quantity;
+  bal.updatedAt = new Date().toISOString();
+  await writeBalances(balances);
+  return bal;
+}
+
+export async function releaseReservation(input: {
+  productId: string;
+  warehouseId: string;
+  quantity: number;
+}) {
+  const balances = await listStockBalances();
+  const bal = balances.find(
+    (b) => b.productId === input.productId && b.warehouseId === input.warehouseId,
+  );
+  if (!bal) return;
+  bal.quantityReserved = Math.max(0, (bal.quantityReserved || 0) - input.quantity);
+  bal.updatedAt = new Date().toISOString();
+  await writeBalances(balances);
+  return bal;
 }
 
 export async function createStockAdjustment(input: {

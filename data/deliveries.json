@@ -1,0 +1,73 @@
+[
+  {
+    "id": "dn_jd1kg4rhh4",
+    "number": "BL-2026-0002",
+    "salesOrderId": "so_qy9vylrh6v",
+    "salesOrderNumber": "SO-2026-0001",
+    "customerId": "cus_hotel_01",
+    "customerName": "Hôtel Riviera Gombe",
+    "warehouseId": "wh_limete_01",
+    "warehouseName": "Entrepôt Limete",
+    "status": "posted",
+    "deliveredAt": "2026-09-15T17:18:42.223Z",
+    "lines": [
+      {
+        "id": "dl_1ksbr1rhh3",
+        "salesLineId": "sl_n3w39frh6r",
+        "productId": "prd_msv_ali_sb_001",
+        "sku": "ALI-SB-001",
+        "productName": "Simba — Huile végétale raffinée pure (Bidon 5L)",
+        "quantity": 2,
+        "unitOfMeasure": "bidon",
+        "unitPrice": 10.33,
+        "unitCost": 9.84,
+        "currency": "USD"
+      }
+    ],
+    "createdAt": "2026-09-15T17:18:42.223Z",
+    "updatedAt": "2026-09-15T17:18:42.223Z",
+    "postedAt": "2026-09-15T17:18:42.223Z"
+  },
+  {
+    "id": "dn_2bg1ykrhc0",
+    "number": "BL-2026-0001",
+    "salesOrderId": "so_qy9vylrh6v",
+    "salesOrderNumber": "SO-2026-0001",
+    "customerId": "cus_hotel_01",
+    "customerName": "Hôtel Riviera Gombe",
+    "warehouseId": "wh_limete_01",
+    "warehouseName": "Entrepôt Limete",
+    "status": "posted",
+    "deliveredAt": "2026-09-15T17:18:42.028Z",
+    "lines": [
+      {
+        "id": "dl_7v6s6rrhbq",
+        "salesLineId": "sl_n3w39frh6r",
+        "productId": "prd_msv_ali_sb_001",
+        "sku": "ALI-SB-001",
+        "productName": "Simba — Huile végétale raffinée pure (Bidon 5L)",
+        "quantity": 2,
+        "unitOfMeasure": "bidon",
+        "unitPrice": 10.33,
+        "unitCost": 9.84,
+        "currency": "USD"
+      },
+      {
+        "id": "dl_rwf65drhc0",
+        "salesLineId": "sl_fzdfbfrh6v",
+        "productId": "prd_msv_ali_bb_001",
+        "sku": "ALI-BB-001",
+        "productName": "Blue Band — Margarine enrichie 8 vitamines (Boîte 250g)",
+        "quantity": 12,
+        "unitOfMeasure": "boîte",
+        "unitPrice": 1.2,
+        "unitCost": 1.14,
+        "currency": "USD"
+      }
+    ],
+    "createdAt": "2026-09-15T17:18:42.028Z",
+    "updatedAt": "2026-09-15T17:18:42.102Z",
+    "postedAt": "2026-09-15T17:18:42.028Z",
+    "invoiceId": "inv_kjelhlrhdj"
+  }
+]

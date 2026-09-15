@@ -5,6 +5,7 @@ import { isGestionAuthenticated } from "@/lib/auth";
 import { getInventorySnapshot } from "@/lib/inventory";
 import { getGestionDashboard } from "@/lib/masters";
 import { listPurchaseOrders } from "@/lib/procurement";
+import { getSalesDashboard } from "@/lib/sales";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -17,10 +18,11 @@ export const metadata: Metadata = {
 export default async function GestionDashboardPage() {
   if (!(await isGestionAuthenticated())) redirect("/gestion/login");
 
-  const [dash, inv, orders] = await Promise.all([
+  const [dash, inv, orders, sales] = await Promise.all([
     getGestionDashboard(),
     getInventorySnapshot(),
     listPurchaseOrders(),
+    getSalesDashboard(),
   ]);
   const openPos = orders.filter(
     (p) => p.status === "draft" || p.status === "approved" || p.status === "partial",
@@ -31,17 +33,17 @@ export default async function GestionDashboardPage() {
       <div>
         <h1 className="font-display text-3xl font-semibold text-white">Tableau de bord</h1>
         <p className="mt-2 text-sm text-sand/65">
-          Phase 2 — alimentation : masters, achats fournisseur et stock opérationnel.
+          Phase 3 — alimentation : achats, stock, ventes (devis → commande → livraison → facture).
         </p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <Stat label="Produits actifs" value={String(dash.counts.products)} />
-        <Stat label="Clients actifs" value={String(dash.counts.customers)} />
-        <Stat label="Fournisseurs" value={String(dash.counts.suppliers)} />
         <Stat label="Valeur stock (coût réel)" value={`${dash.inventoryValueUsd.toFixed(0)} ${dash.baseCurrency}`} />
-        <Stat label="Stock bas" value={String(dash.counts.lowStock)} />
         <Stat label="BC ouverts" value={String(openPos)} />
+        <Stat label="Commandes ouvertes" value={String(sales.counts.openOrders)} />
+        <Stat label="CA facturé" value={`${sales.salesInvoicedUsd.toFixed(0)} USD`} />
+        <Stat label="Créances (AR)" value={`${sales.arBalanceUsd.toFixed(0)} USD`} />
       </div>
 
       {dash.fx && (
@@ -52,7 +54,13 @@ export default async function GestionDashboardPage() {
       )}
 
       <div className="flex flex-wrap gap-3">
-        <Link href="/gestion/achats" className={cn(buttonVariants(), "bg-copper text-accent-foreground")}>
+        <Link href="/gestion/ventes" className={cn(buttonVariants(), "bg-copper text-accent-foreground")}>
+          Ventes
+        </Link>
+        <Link
+          href="/gestion/achats"
+          className={cn(buttonVariants({ variant: "outline" }), "border-white/20 bg-transparent text-sand")}
+        >
           Achats
         </Link>
         <Link
@@ -66,12 +74,6 @@ export default async function GestionDashboardPage() {
           className={cn(buttonVariants({ variant: "outline" }), "border-white/20 bg-transparent text-sand")}
         >
           Produits
-        </Link>
-        <Link
-          href="/gestion/fournisseurs"
-          className={cn(buttonVariants({ variant: "outline" }), "border-white/20 bg-transparent text-sand")}
-        >
-          Fournisseurs
         </Link>
       </div>
 
