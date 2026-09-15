@@ -267,3 +267,17 @@ Delivered in-repo:
 - Legacy `/admin` redirects into `/gestion` (demandes kept temporarily)
 
 Next: Phase 2 procurement & stock movements.
+
+---
+
+## 10. Phase 2 progress (procurement & stock)
+
+Delivered in-repo:
+
+- Purchase orders (`/gestion/achats`) with draft → approved → partial/posted lifecycle
+- Goods receipt posting updates stock balances + weighted average cost + product master qty
+- Stock module (`/gestion/stock`): balances by warehouse, movements ledger, adjustments / losses
+- APIs: `/api/purchases`, `/api/stock`, `/api/warehouses`
+- Seed BC Beltexco `PO-2026-0001` (sardines, tomate, lait) ready to receive
+
+Next: Phase 3 sales chain (devis → commandes → livraisons → factures).

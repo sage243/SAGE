@@ -145,3 +145,122 @@ export function computeGrossMargin(sellingPrice: number, landedCost: number) {
     marginPct: (grossProfit / sellingPrice) * 100,
   };
 }
+
+/** Document lifecycle for financial / operational docs */
+export type DocStatus = "draft" | "approved" | "posted" | "cancelled" | "partial";
+
+export type StockMovementType =
+  | "purchase_receipt"
+  | "sales_issue"
+  | "transfer_in"
+  | "transfer_out"
+  | "adjustment"
+  | "loss"
+  | "opening";
+
+export interface PurchaseOrderLine {
+  id: string;
+  productId: string;
+  sku: string;
+  productName: string;
+  quantityOrdered: number;
+  quantityReceived: number;
+  unitOfMeasure: string;
+  unitPrice: number;
+  currency: CurrencyCode;
+  transportCost: number;
+  handlingCost: number;
+  storageCost: number;
+  otherDirectCosts: number;
+  lineTotal: number;
+  landedUnitCost: number;
+}
+
+export interface PurchaseOrder {
+  id: string;
+  number: string;
+  supplierId: string;
+  supplierName: string;
+  warehouseId: string;
+  warehouseName: string;
+  status: DocStatus;
+  currency: CurrencyCode;
+  exchangeRate: number;
+  orderedAt: string;
+  expectedAt?: string;
+  notes?: string;
+  lines: PurchaseOrderLine[];
+  subtotal: number;
+  totalLanded: number;
+  createdAt: string;
+  updatedAt: string;
+  approvedAt?: string;
+  postedAt?: string;
+  cancelledAt?: string;
+}
+
+export interface GoodsReceiptLine {
+  id: string;
+  purchaseLineId: string;
+  productId: string;
+  sku: string;
+  productName: string;
+  quantityReceived: number;
+  unitOfMeasure: string;
+  unitPrice: number;
+  landedUnitCost: number;
+  currency: CurrencyCode;
+}
+
+export interface GoodsReceipt {
+  id: string;
+  number: string;
+  purchaseOrderId: string;
+  purchaseOrderNumber: string;
+  warehouseId: string;
+  warehouseName: string;
+  status: Extract<DocStatus, "draft" | "posted" | "cancelled">;
+  receivedAt: string;
+  notes?: string;
+  lines: GoodsReceiptLine[];
+  createdAt: string;
+  updatedAt: string;
+  postedAt?: string;
+}
+
+export interface StockMovement {
+  id: string;
+  type: StockMovementType;
+  productId: string;
+  sku: string;
+  productName: string;
+  warehouseId: string;
+  warehouseName: string;
+  quantity: number;
+  /** Signed delta applied to on-hand (+ in / − out) */
+  quantityDelta: number;
+  unitOfMeasure: string;
+  unitCost: number;
+  currency: CurrencyCode;
+  referenceType?: "purchase_order" | "goods_receipt" | "adjustment" | "opening";
+  referenceId?: string;
+  referenceNumber?: string;
+  reason?: string;
+  createdAt: string;
+  createdBy: string;
+}
+
+export interface StockBalance {
+  id: string;
+  productId: string;
+  sku: string;
+  productName: string;
+  warehouseId: string;
+  warehouseName: string;
+  quantityOnHand: number;
+  unitOfMeasure: string;
+  averageUnitCost: number;
+  currency: CurrencyCode;
+  reorderLevel: number;
+  updatedAt: string;
+}

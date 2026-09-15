@@ -2,7 +2,9 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import { isGestionAuthenticated } from "@/lib/auth";
+import { getInventorySnapshot } from "@/lib/inventory";
 import { getGestionDashboard } from "@/lib/masters";
+import { listPurchaseOrders } from "@/lib/procurement";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -15,14 +17,21 @@ export const metadata: Metadata = {
 export default async function GestionDashboardPage() {
   if (!(await isGestionAuthenticated())) redirect("/gestion/login");
 
-  const dash = await getGestionDashboard();
+  const [dash, inv, orders] = await Promise.all([
+    getGestionDashboard(),
+    getInventorySnapshot(),
+    listPurchaseOrders(),
+  ]);
+  const openPos = orders.filter(
+    (p) => p.status === "draft" || p.status === "approved" || p.status === "partial",
+  ).length;
 
   return (
     <div className="space-y-8">
       <div>
         <h1 className="font-display text-3xl font-semibold text-white">Tableau de bord</h1>
         <p className="mt-2 text-sm text-sand/65">
-          Phase 1 — masters alimentation & distribution. Achats / stock / ventes arrivent ensuite.
+          Phase 2 — alimentation : masters, achats fournisseur et stock opérationnel.
         </p>
       </div>
 
@@ -32,7 +41,7 @@ export default async function GestionDashboardPage() {
         <Stat label="Fournisseurs" value={String(dash.counts.suppliers)} />
         <Stat label="Valeur stock (coût réel)" value={`${dash.inventoryValueUsd.toFixed(0)} ${dash.baseCurrency}`} />
         <Stat label="Stock bas" value={String(dash.counts.lowStock)} />
-        <Stat label="Ruptures" value={String(dash.counts.outOfStock)} />
+        <Stat label="BC ouverts" value={String(openPos)} />
       </div>
 
       {dash.fx && (
@@ -43,14 +52,20 @@ export default async function GestionDashboardPage() {
       )}
 
       <div className="flex flex-wrap gap-3">
-        <Link href="/gestion/produits" className={cn(buttonVariants(), "bg-copper text-accent-foreground")}>
-          Produits
+        <Link href="/gestion/achats" className={cn(buttonVariants(), "bg-copper text-accent-foreground")}>
+          Achats
         </Link>
         <Link
-          href="/gestion/clients"
+          href="/gestion/stock"
           className={cn(buttonVariants({ variant: "outline" }), "border-white/20 bg-transparent text-sand")}
         >
-          Clients
+          Stock ({inv.movementCount} mvts)
+        </Link>
+        <Link
+          href="/gestion/produits"
+          className={cn(buttonVariants({ variant: "outline" }), "border-white/20 bg-transparent text-sand")}
+        >
+          Produits
         </Link>
         <Link
           href="/gestion/fournisseurs"

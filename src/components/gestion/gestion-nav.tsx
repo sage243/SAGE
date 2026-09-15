@@ -9,6 +9,8 @@ const links = [
   { href: "/gestion/clients", label: "Clients" },
   { href: "/gestion/fournisseurs", label: "Fournisseurs" },
   { href: "/gestion/produits", label: "Produits" },
+  { href: "/gestion/achats", label: "Achats" },
+  { href: "/gestion/stock", label: "Stock" },
   { href: "/gestion/parametres", label: "Paramètres" },
   { href: "/admin/demandes", label: "Demandes (legacy)" },
 ];

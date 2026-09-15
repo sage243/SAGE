@@ -7,7 +7,7 @@ export const DIVISIONS: Division[] = [
     name: "Alimentation",
     shortName: "Alimentation",
     article2:
-      "Commerce général orienté alimentation : denrées, épicerie et distribution de produits alimentaires (réf. Article 2 — commerce général).",
+      "Alimentation : denrées, épicerie et distribution de produits alimentaires (réf. Article 2 — activité générale réorientée alimentation).",
     summary:
       "Grossiste alimentaire à Kinshasa : conserves, épicerie, lait, boissons et produits de distribution courante (références Beltexco / Rawji).",
     priority: 1,
