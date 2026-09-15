@@ -1,0 +1,13 @@
+{
+  "baseCurrency": "USD",
+  "rates": [
+    {
+      "id": "fx_usd_cdf_1",
+      "from": "USD",
+      "to": "CDF",
+      "rate": 2850,
+      "effectiveAt": "2026-09-15T06:00:00.000Z",
+      "source": "Référence interne SAGE"
+    }
+  ]
+}

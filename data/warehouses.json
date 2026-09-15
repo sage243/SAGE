@@ -1,0 +1,22 @@
+[
+  {
+    "id": "wh_gombe_01",
+    "code": "WH-GOMBE",
+    "name": "Dépôt Gombe",
+    "city": "Kinshasa",
+    "address": "644 Av. Tombalbaye, Immeuble Masamba",
+    "isDefault": true,
+    "status": "actif",
+    "updatedAt": "2026-09-15T08:00:00.000Z"
+  },
+  {
+    "id": "wh_limete_01",
+    "code": "WH-LIMETE",
+    "name": "Entrepôt Limete",
+    "city": "Kinshasa",
+    "address": "Zone industrielle Limete",
+    "isDefault": false,
+    "status": "actif",
+    "updatedAt": "2026-09-15T08:00:00.000Z"
+  }
+]
