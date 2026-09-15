@@ -2,9 +2,47 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import type { ProfitRow } from "@/lib/reports";
 
-type Report = Awaited<ReturnType<typeof import("@/lib/reports").getProfitabilityReport>>;
+type ProfitRow = {
+  key: string;
+  label: string;
+  secondary?: string;
+  quantity: number;
+  revenue: number;
+  cost: number;
+  grossProfit: number;
+  marginPct: number;
+  invoiceCount: number;
+};
+
+type CatalogRow = {
+  key: string;
+  sku: string;
+  label: string;
+  landedCost: number;
+  sellingPrice: number;
+  wholesalePrice: number;
+  grossProfit: number;
+  marginPct: number;
+  quantityOnHand: number;
+};
+
+type Report = {
+  baseCurrency: string;
+  fxUsdToCdf: number;
+  totals: {
+    revenue: number;
+    cost: number;
+    grossProfit: number;
+    marginPct: number;
+    invoiceCount: number;
+  };
+  byProduct: ProfitRow[];
+  byCustomer: ProfitRow[];
+  byActivity: ProfitRow[];
+  catalogMargins: CatalogRow[];
+  lowMarginCatalog: CatalogRow[];
+};
 
 type Tab = "produits" | "clients" | "activites" | "catalogue";
 
