@@ -11,6 +11,7 @@ const links = [
   { href: "/gestion/produits", label: "Produits" },
   { href: "/gestion/achats", label: "Achats" },
   { href: "/gestion/stock", label: "Stock" },
+  { href: "/gestion/correspondances", label: "Correspondances" },
   { href: "/gestion/parametres", label: "Paramètres" },
   { href: "/admin/demandes", label: "Demandes (legacy)" },
 ];

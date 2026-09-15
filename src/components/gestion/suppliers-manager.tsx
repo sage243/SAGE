@@ -89,8 +89,10 @@ export function SuppliersManager() {
                 {s.code} · {s.legalName}
               </p>
               <p className="text-sm text-sand/60">
-                {s.city} · {s.phone} · solde {s.outstandingBalance} {s.outstandingCurrency}
+                {s.city} · {s.phone} · {s.email || "—"} · solde {s.outstandingBalance} {s.outstandingCurrency}
               </p>
+              {s.address && <p className="mt-1 text-xs text-sand/45">{s.address}</p>}
+              {s.notes && <p className="mt-2 max-w-2xl text-xs leading-relaxed text-sand/50">{s.notes}</p>}
             </div>
             <Button
               size="sm"

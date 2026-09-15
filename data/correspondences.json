@@ -1,0 +1,35 @@
+[
+  {
+    "id": "corr_msv_001",
+    "reference": "SAGE-RDC/DG/2026/001",
+    "direction": "outbound",
+    "status": "en_attente_reponse",
+    "date": "2026-09-09",
+    "subject": "Expression d’intérêt commercial — Demande de catalogue général, grille tarifaire de gros et procédure d’ouverture de compte client (SAGE SARL)",
+    "counterpartyType": "supplier",
+    "counterpartyId": "sup_marsavco_01",
+    "counterpartyName": "MARSAVCO S.A.",
+    "counterpartyAddress": "01, Avenue Kalemie, Commune de la Gombe — B.P. 8914, Kinshasa I, R.D. Congo",
+    "toAttention": "Direction Commerciale & Service des Ventes",
+    "fromName": "Germain SELEMANI AMISI",
+    "fromTitle": "Directeur Général / Gérant — SAGE SARL",
+    "bodySummary": "SAGE SARL initie un partenariat distributeur FMCG avec MARSAVCO (dépôt central + points de vente Gombe, Limete, Ngaliema, Funa, N’djili). Demande catalogue, tarifs gros/semi-gros USD, remises volume, CGV/logistique et dossier d’ouverture de compte.",
+    "requestedItems": [
+      "Catalogue général des produits (Alimentaire, Hygiène, Entretien, Détergents)",
+      "Grille tarifaire gros & semi-gros (HT USD, unité et carton)",
+      "Barème de remises sur volume (distributeurs / grands comptes)",
+      "Conditions générales de vente et logistique (MOQ, livraison Kinshasa, enlèvement dépôt)",
+      "Fiche et procédure d’ouverture de compte client"
+    ],
+    "cc": [
+      "Dir. des Achats et Chaîne d’Approvisionnement",
+      "Dir. des Opérations et Clientèles",
+      "Directeur Financier et Comptable",
+      "Chargé de Marketing et mobilisation"
+    ],
+    "attachmentPath": "/correspondances/SAGE-RDC_DG_2026_001_MARSAVCO.docx",
+    "attachmentLabel": "Correspondance MARSAVCO — SAGE-RDC_001.docx",
+    "createdAt": "2026-09-09T10:00:00.000Z",
+    "updatedAt": "2026-09-15T17:08:44.000Z"
+  }
+]

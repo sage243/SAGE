@@ -2,11 +2,11 @@
   {
     "id": "sup_marsavco_01",
     "code": "FRN-MSV",
-    "legalName": "MARSAVCO S.A. — Margarine, Savonnerie & Cosmétiques",
-    "contactPerson": "Service Commercial Kinshasa",
-    "phone": "+243 812 000 500",
-    "email": "commercial@marsavco.com",
-    "address": "Avenue des Huileries, Zone industrielle, Kinshasa",
+    "legalName": "MARSAVCO S.A.",
+    "contactPerson": "Direction Commerciale & Service des Ventes",
+    "phone": "+243 810 448 972",
+    "email": "sales.kinshasa@marsavco.com",
+    "address": "01, Avenue Kalemie, Commune de la Gombe — B.P. 8914, Kinshasa I",
     "city": "Kinshasa",
     "paymentTermsDays": 21,
     "productCategories": [
@@ -18,11 +18,11 @@
       "hygiene"
     ],
     "status": "actif",
-    "notes": "Catalogue officiel Marsavco (Simba, Blue Band, Bona, Monganga, Santé). Tarifs de gros indicatifs HT 2026 — confirmer au service commercial.",
+    "notes": "Contacts officiels : Tél. +243 810 448 972 / +243 818 971 666 · sales.kinshasa@marsavco.com ; info@marsavco.com. Correspondance sortante SAGE-RDC/DG/2026/001 (09/09/2026) — demande catalogue, grille tarifaire gros, remises volume, CGV et ouverture de compte. Statut : en attente de réponse MARSAVCO.",
     "outstandingBalance": 0,
     "outstandingCurrency": "USD",
     "createdAt": "2026-09-15T17:07:27.000Z",
-    "updatedAt": "2026-09-15T17:07:27.000Z"
+    "updatedAt": "2026-09-15T17:08:44.000Z"
   },
   {
     "id": "sup_beltexco_01",
