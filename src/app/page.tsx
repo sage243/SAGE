@@ -29,7 +29,7 @@ export default async function HomePage() {
             <span className="block text-copper">FOR EXCELLENCE</span>
           </h1>
           <p className="animate-rise-delay mt-5 max-w-xl text-base leading-relaxed text-sand/85 sm:text-lg">
-            Commerce et distribution de vivres d’abord — avec une plateforme de gestion pour vendre,
+            Alimentation et distribution de vivres d’abord — avec une plateforme de gestion pour vendre,
             stocker, livrer et encaisser.
           </p>
           <div className="animate-rise-delay-2 mt-8 flex flex-wrap gap-3">
@@ -61,8 +61,8 @@ export default async function HomePage() {
           Le moteur de cash SAGE
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-          Priorité 1 : commerce général et distribution urbaine de vivres / restauration — cycles
-          de trésorerie courts.
+          Priorité 1 : alimentation (grossiste Beltexco) et distribution urbaine de vivres /
+          restauration — cycles de trésorerie courts.
         </p>
         <div className="mt-10 grid gap-8 sm:grid-cols-2">
           {current.map((division) => (
@@ -86,7 +86,7 @@ export default async function HomePage() {
                 Offres prioritaires
               </p>
               <h2 className="mt-2 font-display text-3xl font-semibold text-sage-deep">
-                Vivres & commerce
+                Vivres & alimentation
               </h2>
             </div>
             <Link href="/catalogue" className="text-sm font-semibold text-primary hover:underline">

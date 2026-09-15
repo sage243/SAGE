@@ -15,7 +15,7 @@ export default async function GestionLayout({ children }: { children: React.Reac
               SAGE Gestion
             </Link>
             <span className="hidden text-xs uppercase tracking-[0.16em] text-sand/50 sm:inline">
-              Commerce & distribution
+              Alimentation & distribution
             </span>
           </div>
           <div className="flex items-center gap-3 text-sm">

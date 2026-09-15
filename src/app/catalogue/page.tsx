@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Catalogue",
-  description: "Produits et services SAGE — commerce & distribution prioritaires.",
+  description: "Produits et services SAGE — alimentation & distribution prioritaires.",
 };
 
 type Props = { searchParams: Promise<{ division?: string; kind?: string }> };
@@ -39,8 +39,8 @@ export default async function CataloguePage({ searchParams }: Props) {
         Catalogue produits & services
       </h1>
       <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-        Priorité opérationnelle : commerce et distribution de vivres. Les autres activités Article 2
-        restent visibles mais non opérationnalisées.
+        Priorité opérationnelle : alimentation (références Beltexco) et distribution de vivres. Les
+        autres activités Article 2 restent visibles mais non opérationnalisées.
       </p>
 
       <CatalogueFilters division={params.division} kind={params.kind} total={products.length} />

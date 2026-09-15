@@ -27,7 +27,7 @@ const PHASES = [
     title: "Moteurs de cash",
     budget: "Réinvestir les marges opérationnelles",
     outcome:
-      "Digitaliser d’abord commerce général + restauration/vivres (cycles quotidiens / hebdomadaires).",
+      "Digitaliser d’abord alimentation + restauration/vivres (cycles quotidiens / hebdomadaires).",
     actions: [
       "Listes de prix et commandes récurrentes B2B",
       "Traiteur entreprises & paniers vivres sur abonnement",

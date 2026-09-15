@@ -22,7 +22,7 @@ export default async function GestionDashboardPage() {
       <div>
         <h1 className="font-display text-3xl font-semibold text-white">Tableau de bord</h1>
         <p className="mt-2 text-sm text-sand/65">
-          Phase 1 — masters commerce & distribution. Achats / stock / ventes arrivent ensuite.
+          Phase 1 — masters alimentation & distribution. Achats / stock / ventes arrivent ensuite.
         </p>
       </div>
 

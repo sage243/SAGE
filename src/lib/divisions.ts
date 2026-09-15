@@ -4,17 +4,17 @@ import type { Division } from "./types";
 export const DIVISIONS: Division[] = [
   {
     slug: "commerce-general",
-    name: "Commerce général",
-    shortName: "Commerce",
+    name: "Alimentation",
+    shortName: "Alimentation",
     article2:
-      "Commerce général y compris maison d’habillement, chaussures, pièces de rechange automobile, etc.",
+      "Commerce général orienté alimentation : denrées, épicerie et distribution de produits alimentaires (réf. Article 2 — commerce général).",
     summary:
-      "Distribution multi-produits : mode, chaussures, pièces automobiles et articles de consommation courante pour Kinshasa et le Grand Kivu.",
+      "Grossiste alimentaire à Kinshasa : conserves, épicerie, lait, boissons et produits de distribution courante (références Beltexco / Rawji).",
     priority: 1,
     phase: 2,
     cashCycle: "quotidien",
     digitalFit:
-      "Catalogue en ligne, demandes de stock, commandes B2B et suivi des références rapides.",
+      "Catalogue alimentaire, cotations carton/unité, commandes B2B et réassort rapide.",
     accent: "#1F6B4A",
   },
   {

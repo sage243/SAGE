@@ -74,7 +74,7 @@ const SEED_CUSTOMERS: Customer[] = [
     creditLimit: 2000,
     creditLimitCurrency: "USD",
     paymentTermsDays: 15,
-    assignedSalesperson: "Équipe Commerce",
+    assignedSalesperson: "Équipe Alimentation",
     status: "actif",
     createdAt: "2026-09-05T10:00:00.000Z",
     updatedAt: "2026-09-05T10:00:00.000Z",
