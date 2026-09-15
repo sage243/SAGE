@@ -15,14 +15,14 @@ export async function POST(request: Request) {
   if (!gestionLoginOk(String(body.username || ""), String(body.password || ""))) {
     return NextResponse.json({ error: "Identifiants invalides" }, { status: 401 });
   }
-  const jar = await cookies();
-  jar.set(GESTION_SESSION_COOKIE, "ok", {
+  const response = NextResponse.json({ ok: true });
+  response.cookies.set(GESTION_SESSION_COOKIE, "ok", {
     httpOnly: true,
     sameSite: "lax",
     path: "/",
     maxAge: 60 * 60 * 12,
   });
-  return NextResponse.json({ ok: true });
+  return response;
 }
 
 export async function DELETE() {
