@@ -297,3 +297,16 @@ Delivered in-repo:
 - API `/api/sales`
 
 Next: Phase 4 profitability reports / Phase 5 management dashboard KPIs.
+
+---
+
+## 12. Phase 4–5 progress (profitability + management KPIs)
+
+Delivered in-repo:
+
+- Profitability engine from **frozen invoice cost basis** (product / customer / activity)
+- Catalog theoretical margin view + low-margin alerts (&lt; 8%)
+- Management dashboard KPIs: CA, gross profit, inventory, AR, AP, cash collected, NWC — USD + CDF via FX
+- UI `/gestion/rentabilite` · API `/api/reports`
+
+Next: Phase 6 restaurant & boissons (recipe → stock) — or harden reporting filters/date ranges.

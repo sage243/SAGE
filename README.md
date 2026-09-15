@@ -21,6 +21,8 @@ See [`docs/SAGE_PHASE0_AUDIT.md`](docs/SAGE_PHASE0_AUDIT.md) for KEEP/IMPROVE/ME
 - **Achats** — bons de commande → approbation → réception (GRN)
 - **Stock** — soldes par entrepôt, mouvements, ajustements / pertes
 - **Ventes** — devis → commande (réservation) → livraison (sortie + coût figé) → facture → paiement
+- **Rentabilité** — marges réalisées par produit / client / activité + catalogue théorique
+- **Tableau de bord** — KPIs CA, stock, AR, AP, encaissements USD/CDF
 - **Correspondances** — courriers commerciaux (ex. SAGE-RDC/DG/2026/001 → MARSAVCO)
 - Paramètres (FX USD→CDF, warehouses)
 - Legacy demandes: `/admin/demandes`
