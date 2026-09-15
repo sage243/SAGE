@@ -10,7 +10,7 @@ See [`docs/SAGE_PHASE0_AUDIT.md`](docs/SAGE_PHASE0_AUDIT.md) for KEEP/IMPROVE/ME
 
 ### Public
 - Home focused on **current** activities (alimentation + vivres)
-- Catalogue from Product Master (références Beltexco Kinshasa)
+- Catalogue from Product Master (références Marsavco & Beltexco Kinshasa)
 - Devis / leads
 - Contact + plan
 

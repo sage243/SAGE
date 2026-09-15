@@ -9,7 +9,7 @@ export const DIVISIONS: Division[] = [
     article2:
       "Alimentation : denrées, épicerie et distribution de produits alimentaires (réf. Article 2 — activité générale réorientée alimentation).",
     summary:
-      "Grossiste alimentaire à Kinshasa : conserves, épicerie, lait, boissons et produits de distribution courante (références Beltexco / Rawji).",
+      "Grossiste alimentaire à Kinshasa : huiles Simba, margarine Blue Band, épicerie et hygiène (références Marsavco & Beltexco).",
     priority: 1,
     phase: 2,
     cashCycle: "quotidien",

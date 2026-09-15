@@ -1,5 +1,30 @@
 [
   {
+    "id": "sup_marsavco_01",
+    "code": "FRN-MSV",
+    "legalName": "MARSAVCO S.A. — Margarine, Savonnerie & Cosmétiques",
+    "contactPerson": "Service Commercial Kinshasa",
+    "phone": "+243 812 000 500",
+    "email": "commercial@marsavco.com",
+    "address": "Avenue des Huileries, Zone industrielle, Kinshasa",
+    "city": "Kinshasa",
+    "paymentTermsDays": 21,
+    "productCategories": [
+      "huiles",
+      "margarine",
+      "alimentaire",
+      "savons",
+      "detergents",
+      "hygiene"
+    ],
+    "status": "actif",
+    "notes": "Catalogue officiel Marsavco (Simba, Blue Band, Bona, Monganga, Santé). Tarifs de gros indicatifs HT 2026 — confirmer au service commercial.",
+    "outstandingBalance": 0,
+    "outstandingCurrency": "USD",
+    "createdAt": "2026-09-15T17:07:27.000Z",
+    "updatedAt": "2026-09-15T17:07:27.000Z"
+  },
+  {
     "id": "sup_beltexco_01",
     "code": "FRN-BLX",
     "legalName": "BELTEXCO S.A. — Groupe Rawji",

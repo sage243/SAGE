@@ -61,7 +61,7 @@ export default async function HomePage() {
           Le moteur de cash SAGE
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-          Priorité 1 : alimentation (grossiste Beltexco) et distribution urbaine de vivres /
+          Priorité 1 : alimentation (Marsavco & Beltexco) et distribution urbaine de vivres /
           restauration — cycles de trésorerie courts.
         </p>
         <div className="mt-10 grid gap-8 sm:grid-cols-2">
