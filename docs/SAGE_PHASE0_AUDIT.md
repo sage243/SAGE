@@ -281,3 +281,19 @@ Delivered in-repo:
 - Seed BC Beltexco `PO-2026-0001` (sardines, tomate, lait) ready to receive
 
 Next: Phase 3 sales chain (devis → commandes → livraisons → factures).
+
+---
+
+## 11. Phase 3 progress (sales chain)
+
+Delivered in-repo:
+
+- Quotations → approve → convert to sales order
+- Sales order approve reserves stock; cancel releases reservation
+- Delivery posts `sales_issue` movements, releases reservation, supports partial delivery
+- Invoice freezes unit cost / margin from delivery lines
+- Payment recording updates AR balance (`posted` / `partial` / `paid`)
+- UI `/gestion/ventes` with tabs Devis / Commandes / Livraisons / Factures
+- API `/api/sales`
+
+Next: Phase 4 profitability reports / Phase 5 management dashboard KPIs.

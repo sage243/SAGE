@@ -20,6 +20,7 @@ See [`docs/SAGE_PHASE0_AUDIT.md`](docs/SAGE_PHASE0_AUDIT.md) for KEEP/IMPROVE/ME
 - Clients, Fournisseurs, Produits (landed cost)
 - **Achats** — bons de commande → approbation → réception (GRN)
 - **Stock** — soldes par entrepôt, mouvements, ajustements / pertes
+- **Ventes** — devis → commande (réservation) → livraison (sortie + coût figé) → facture → paiement
 - **Correspondances** — courriers commerciaux (ex. SAGE-RDC/DG/2026/001 → MARSAVCO)
 - Paramètres (FX USD→CDF, warehouses)
 - Legacy demandes: `/admin/demandes`
@@ -47,6 +48,7 @@ Next.js · TypeScript · Tailwind · shadcn/ui · JSON stores (Postgres planned)
 - `data/customers.json`, `suppliers.json`, `warehouses.json`, `currency.json`
 - `data/purchase-orders.json`, `goods-receipts.json`
 - `data/stock-balances.json`, `stock-movements.json`
+- `data/quotations.json`, `sales-orders.json`, `deliveries.json`, `invoices.json`, `payments.json`
 - `data/correspondences.json` — courriers fournisseurs (DOCX dans `public/correspondances/`)
 - `data/inquiries.json` — legacy leads (to merge into sales quotations)
 - `data/products.json` — legacy catalogue (superseded by products-master)
