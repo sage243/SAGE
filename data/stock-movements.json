@@ -1,0 +1,22 @@
+[
+  {
+    "id": "mov_c3ea0z5ut7",
+    "type": "purchase_receipt",
+    "productId": "prd_blx_ali_sd_001",
+    "sku": "ALI-SD-001",
+    "productName": "Sardines à l'huile d'olive (125g)",
+    "warehouseId": "wh_limete_01",
+    "warehouseName": "Entrepôt Limete",
+    "quantity": 40,
+    "quantityDelta": 40,
+    "unitOfMeasure": "boîte",
+    "unitCost": 0.9,
+    "currency": "USD",
+    "referenceType": "purchase_order",
+    "referenceId": "po_blx_001",
+    "referenceNumber": "PO-2026-0001",
+    "reason": "Réception PO-2026-0001",
+    "createdAt": "2026-09-15T17:01:53.075Z",
+    "createdBy": "gestion"
+  }
+]
