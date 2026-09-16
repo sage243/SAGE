@@ -118,6 +118,8 @@ export interface Product {
   publicVisible: boolean;
   tags: string[];
   stockNote?: string;
+  /** Public catalogue packshot — local /products/{sku}.jpg or remote URL */
+  imageUrl?: string;
   updatedAt: string;
 }
 

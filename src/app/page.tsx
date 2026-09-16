@@ -4,6 +4,7 @@ import { DIVISIONS } from "@/lib/divisions";
 import { listProducts } from "@/lib/masters";
 import { buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { ProductCard } from "@/components/site/product-card";
 import { cn } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
@@ -11,10 +12,12 @@ export const dynamic = "force-dynamic";
 export default async function HomePage() {
   const current = DIVISIONS.filter((d) => d.priority === 1);
   const future = DIVISIONS.filter((d) => d.priority !== 1);
-  const products = (await listProducts())
-    .filter((p) => p.status === "active" && p.publicVisible && p.featured)
-    .filter((p) => current.some((d) => d.slug === p.activity))
-    .slice(0, 3);
+  const all = (await listProducts()).filter((p) => p.status === "active" && p.publicVisible);
+  const featured = (
+    all.filter((p) => p.featured).length >= 3
+      ? all.filter((p) => p.featured)
+      : all.filter((p) => p.kind === "product")
+  ).slice(0, 6);
 
   return (
     <>
@@ -29,13 +32,16 @@ export default async function HomePage() {
             <span className="block text-copper">FOR EXCELLENCE</span>
           </h1>
           <p className="animate-rise-delay mt-5 max-w-xl text-base leading-relaxed text-sand/85 sm:text-lg">
-            Alimentation et distribution de vivres d’abord — avec une plateforme de gestion pour vendre,
-            stocker, livrer et encaisser.
+            Alimentation et distribution de vivres d’abord — avec une plateforme de gestion pour
+            vendre, stocker, livrer et encaisser.
           </p>
           <div className="animate-rise-delay-2 mt-8 flex flex-wrap gap-3">
             <Link
               href="/catalogue"
-              className={cn(buttonVariants({ size: "lg" }), "bg-copper text-accent-foreground hover:bg-copper/90")}
+              className={cn(
+                buttonVariants({ size: "lg" }),
+                "bg-copper text-accent-foreground hover:bg-copper/90",
+              )}
             >
               Catalogue actuel
               <ArrowRight className="size-4" />
@@ -83,30 +89,22 @@ export default async function HomePage() {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">
-                Offres prioritaires
+                Sélection catalogue
               </p>
               <h2 className="mt-2 font-display text-3xl font-semibold text-sage-deep">
-                Vivres & alimentation
+                Produits en image
               </h2>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                Chaque référence a un visuel — parcourez le catalogue, filtrez, demandez un devis.
+              </p>
             </div>
             <Link href="/catalogue" className="text-sm font-semibold text-primary hover:underline">
               Catalogue complet →
             </Link>
           </div>
-          <div className="mt-10 grid gap-8 md:grid-cols-3">
-            {products.map((product) => (
-              <article key={product.id} className="border-l-2 border-primary/30 pl-5">
-                <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                  {product.sku}
-                </p>
-                <h3 className="mt-2 font-display text-xl font-semibold text-sage-deep">
-                  {product.name}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {product.description}
-                </p>
-                <p className="mt-4 text-sm font-semibold text-copper">{product.priceLabel}</p>
-              </article>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {featured.map((product, i) => (
+              <ProductCard key={product.id} product={product} priority={i < 3} />
             ))}
           </div>
         </div>

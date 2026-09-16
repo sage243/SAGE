@@ -2,96 +2,108 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { DIVISIONS } from "@/lib/divisions";
 import { listProducts } from "@/lib/masters";
-import { Badge } from "@/components/ui/badge";
 import { CatalogueFilters } from "@/components/site/catalogue-filters";
+import { ProductCard } from "@/components/site/product-card";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Catalogue",
-  description: "Produits et services SAGE — alimentation & distribution prioritaires.",
+  description:
+    "Catalogue SAGE — savonnerie, détergents, épicerie, vivres et distribution. Tarifs Marsavco & Beltexco.",
 };
 
-type Props = { searchParams: Promise<{ division?: string; kind?: string }> };
+type Props = {
+  searchParams: Promise<{ division?: string; kind?: string; category?: string; q?: string }>;
+};
 
 export default async function CataloguePage({ searchParams }: Props) {
   const params = await searchParams;
-  let products = (await listProducts()).filter((p) => p.status === "active" && p.publicVisible);
+  const all = (await listProducts()).filter((p) => p.status === "active" && p.publicVisible);
 
-  if (params.division) {
-    products = products.filter((p) => p.activity === params.division);
-  }
+  let products = all;
+  if (params.division) products = products.filter((p) => p.activity === params.division);
   if (params.kind === "product" || params.kind === "service") {
     products = products.filter((p) => p.kind === params.kind);
   }
+  if (params.category) products = products.filter((p) => p.category === params.category);
+  if (params.q) {
+    const q = params.q.toLowerCase();
+    products = products.filter((p) =>
+      [p.name, p.sku, p.brand, p.category, p.subcategory, p.description, ...(p.tags || [])]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase()
+        .includes(q),
+    );
+  }
 
-  // Surface current cash-engine products first
   products = [...products].sort((a, b) => {
     const pa = DIVISIONS.find((d) => d.slug === a.activity)?.priority ?? 9;
     const pb = DIVISIONS.find((d) => d.slug === b.activity)?.priority ?? 9;
-    return pa - pb;
+    if (pa !== pb) return pa - pb;
+    return a.name.localeCompare(b.name, "fr");
   });
 
+  const categories = [...new Set(all.map((p) => p.category).filter(Boolean))].sort((a, b) =>
+    a.localeCompare(b, "fr"),
+  );
+
   return (
-    <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">Offre SAGE</p>
-      <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-sage-deep">
-        Catalogue produits & services
-      </h1>
-      <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-        Priorité opérationnelle : alimentation (tarifs Marsavco & Beltexco) et distribution de
-        vivres. Les autres activités Article 2 restent visibles mais non opérationnalisées.
-      </p>
+    <div>
+      <section className="relative overflow-hidden border-b border-primary/10">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "linear-gradient(105deg, rgba(5,46,22,0.92) 0%, rgba(5,46,22,0.72) 45%, rgba(5,46,22,0.35) 100%), url(/products/VIV-RIZ-25.jpg)",
+          }}
+        />
+        <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+          <p className="animate-fade text-xs font-semibold uppercase tracking-[0.24em] text-copper">
+            SAGE · Kinshasa
+          </p>
+          <h1 className="animate-rise mt-3 max-w-2xl font-display text-4xl font-semibold tracking-tight text-sand sm:text-5xl">
+            Catalogue
+          </h1>
+          <p className="animate-rise-delay mt-4 max-w-xl text-base leading-relaxed text-sand/80">
+            Alimentation, entretien et vivres — packshots et tarifs pour commander rapidement.
+          </p>
+        </div>
+      </section>
 
-      <CatalogueFilters division={params.division} kind={params.kind} total={products.length} />
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
+        <CatalogueFilters
+          division={params.division}
+          kind={params.kind}
+          category={params.category}
+          q={params.q}
+          categories={categories}
+          total={products.length}
+        />
 
-      {products.length === 0 ? (
-        <div className="mt-12 border border-dashed border-primary/20 p-10 text-center">
-          <p className="font-display text-xl text-sage-deep">Aucune offre pour ce filtre</p>
-          <Link href="/catalogue" className="mt-4 inline-block text-sm font-semibold text-primary">
-            Réinitialiser
+        {products.length === 0 ? (
+          <div className="mt-12 border border-dashed border-primary/20 px-6 py-14 text-center">
+            <p className="font-display text-2xl text-sage-deep">Aucun produit pour ce filtre</p>
+            <Link href="/catalogue" className="mt-4 inline-block text-sm font-semibold text-primary">
+              Voir tout le catalogue
+            </Link>
+          </div>
+        ) : (
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {products.map((product, i) => (
+              <ProductCard key={product.id} product={product} priority={i < 3} />
+            ))}
+          </div>
+        )}
+
+        <p className="mt-12 text-center text-sm text-muted-foreground">
+          Besoin d’un volume ou d’un panier sur mesure ?{" "}
+          <Link href="/devis" className="font-semibold text-primary hover:underline">
+            Demander un devis
           </Link>
-        </div>
-      ) : (
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((product) => {
-            const division = DIVISIONS.find((d) => d.slug === product.activity);
-            const isCurrent = (division?.priority ?? 9) === 1;
-            return (
-              <article
-                key={product.id}
-                className="flex flex-col border border-primary/10 bg-white/70 p-5"
-              >
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary">{division?.shortName}</Badge>
-                  <Badge variant="outline">
-                    {product.kind === "product" ? "Produit" : "Service"}
-                  </Badge>
-                  <Badge variant={isCurrent ? "default" : "outline"}>
-                    {isCurrent ? "Activité actuelle" : "Développement"}
-                  </Badge>
-                </div>
-                <h2 className="mt-4 font-display text-xl font-semibold text-sage-deep">
-                  {product.name}
-                </h2>
-                <p className="mt-1 text-xs text-muted-foreground">{product.sku}</p>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-                  {product.description}
-                </p>
-                <div className="mt-5 flex items-center justify-between gap-3 border-t border-primary/10 pt-4">
-                  <p className="text-sm font-semibold text-copper">{product.priceLabel}</p>
-                  <Link
-                    href={`/devis?division=${product.activity}&offer=${product.id}`}
-                    className="text-sm font-semibold text-primary hover:underline"
-                  >
-                    Demander →
-                  </Link>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-      )}
+        </p>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
+    ],
+  },
   // Cursor cloud / desktop port-forward hosts hit the dev server cross-origin.
   // Without these entries Next blocks /_next/* and RSC fetches → "Failed to fetch".
   allowedDevOrigins: [

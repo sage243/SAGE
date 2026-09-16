@@ -5,6 +5,7 @@ import { getDivision, DIVISIONS } from "@/lib/divisions";
 import { listProducts } from "@/lib/masters";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
+import { ProductCard } from "@/components/site/product-card";
 import { cn } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
@@ -73,8 +74,8 @@ export default async function DivisionDetailPage({ params }: Props) {
               demande, publier l’offre, qualifier les leads.
             </li>
             <li>
-              <strong className="text-white">Pas encore :</strong> checkout automatisé, ERP ou
-              stock multi-dépôts — trop lourd pour 5&nbsp;000&nbsp;USD de capital.
+              <strong className="text-white">Pas encore :</strong> checkout automatisé pour toutes les
+              divisions — focus cash alimentation / vivres.
             </li>
           </ul>
         </aside>
@@ -86,29 +87,12 @@ export default async function DivisionDetailPage({ params }: Props) {
         </h2>
         {offers.length === 0 ? (
           <p className="mt-4 text-sm text-muted-foreground">
-            Aucune offre publiée pour cette division. Ajoutez-en depuis la console.
+            Aucune offre publiée pour cette division.
           </p>
         ) : (
-          <div className="mt-6 grid gap-6 md:grid-cols-2">
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {offers.map((offer) => (
-              <article key={offer.id} className="border border-primary/10 bg-white/60 p-5">
-                <p className="text-xs uppercase tracking-wider text-muted-foreground">
-                  {offer.kind === "product" ? "Produit" : "Service"}
-                </p>
-                <h3 className="mt-2 font-display text-xl font-semibold">{offer.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {offer.description}
-                </p>
-                <div className="mt-4 flex items-center justify-between gap-3">
-                  <p className="text-sm font-semibold text-copper">{offer.priceLabel}</p>
-                  <Link
-                    href={`/devis?division=${division.slug}&offer=${offer.id}`}
-                    className="text-sm font-semibold text-primary hover:underline"
-                  >
-                    Demander →
-                  </Link>
-                </div>
-              </article>
+              <ProductCard key={offer.id} product={offer} />
             ))}
           </div>
         )}

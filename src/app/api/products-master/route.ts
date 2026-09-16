@@ -76,6 +76,7 @@ export async function POST(request: Request) {
           .map((t: string) => t.trim())
           .filter(Boolean),
     stockNote: body.stockNote || undefined,
+    imageUrl: body.imageUrl ? String(body.imageUrl).trim() : undefined,
   });
 
   return NextResponse.json(product, { status: body.id ? 200 : 201 });

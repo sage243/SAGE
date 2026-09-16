@@ -402,6 +402,11 @@ export async function getProduct(id: string) {
   return (await listProducts()).find((p) => p.id === id);
 }
 
+export async function getProductBySku(sku: string) {
+  const key = sku.trim().toLowerCase();
+  return (await listProducts()).find((p) => p.sku.toLowerCase() === key);
+}
+
 export async function saveProduct(
   input: Omit<Product, "id" | "updatedAt" | "landedCost"> & { id?: string; landedCost?: number },
 ) {
