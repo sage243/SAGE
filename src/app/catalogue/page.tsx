@@ -56,7 +56,7 @@ export default async function CataloguePage({ searchParams }: Props) {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "linear-gradient(105deg, rgba(5,46,22,0.92) 0%, rgba(5,46,22,0.72) 45%, rgba(5,46,22,0.35) 100%), url(/products/VIV-RIZ-25.jpg)",
+              "linear-gradient(105deg, rgba(0,58,102,0.92) 0%, rgba(0,58,102,0.72) 45%, rgba(0,161,230,0.35) 100%), url(/products/VIV-RIZ-25.jpg)",
           }}
         />
         <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">

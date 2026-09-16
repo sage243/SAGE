@@ -17,7 +17,7 @@ export function ProductImage({
   const url = src || "/products/placeholder-shelf.jpg";
 
   return (
-    <div className={cn("relative overflow-hidden bg-[#e8efe8]", className)}>
+    <div className={cn("relative overflow-hidden bg-[#e8f4fb]", className)}>
       <Image
         src={url}
         alt={alt}

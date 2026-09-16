@@ -30,7 +30,7 @@ export function SiteHeader() {
   if (isAdmin) return null;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-primary/10 bg-[#f7f4ee]/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-primary/10 bg-[#f5f8fb]/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link href="/" className="group flex items-center gap-2.5" aria-label="SAGE — Accueil">
           <Image
