@@ -40,29 +40,36 @@ export function StockManager() {
   );
 
   async function load() {
-    const [bRes, mRes, pRes, wRes] = await Promise.all([
-      fetch("/api/stock?view=balances"),
-      fetch("/api/stock?view=movements"),
-      fetch("/api/products-master"),
-      fetch("/api/warehouses"),
-    ]);
-    if (bRes.ok) setBalances(await bRes.json());
-    if (mRes.ok) setMovements(await mRes.json());
-    if (pRes.ok) {
-      const p = (await pRes.json()) as Product[];
-      setProducts(p);
-      setForm((f) => ({
-        ...f,
-        productId: f.productId || p.find((x) => x.kind === "product")?.id || "",
-      }));
-    }
-    if (wRes.ok) {
-      const w = (await wRes.json()) as Warehouse[];
-      setWarehouses(w);
-      setForm((f) => ({
-        ...f,
-        warehouseId: f.warehouseId || w.find((x) => x.isDefault)?.id || w[0]?.id || "",
-      }));
+    try {
+      const [bRes, mRes, pRes, wRes] = await Promise.all([
+        fetch("/api/stock?view=balances"),
+        fetch("/api/stock?view=movements"),
+        fetch("/api/products-master"),
+        fetch("/api/warehouses"),
+      ]);
+      if (bRes.ok) setBalances(await bRes.json());
+      if (mRes.ok) setMovements(await mRes.json());
+      if (pRes.ok) {
+        const p = (await pRes.json()) as Product[];
+        setProducts(p);
+        setForm((f) => ({
+          ...f,
+          productId: f.productId || p.find((x) => x.kind === "product")?.id || "",
+        }));
+      }
+      if (wRes.ok) {
+        const w = (await wRes.json()) as Warehouse[];
+        setWarehouses(w);
+        setForm((f) => ({
+          ...f,
+          warehouseId: f.warehouseId || w.find((x) => x.isDefault)?.id || w[0]?.id || "",
+        }));
+      }
+      if (!bRes.ok || !mRes.ok) {
+        setMessage("Impossible de charger le stock (réseau). Rechargez la page.");
+      }
+    } catch {
+      setMessage("Connexion au serveur interrompue. Vérifiez que npm run dev tourne, puis rechargez.");
     }
   }
 
@@ -74,23 +81,28 @@ export function StockManager() {
     e.preventDefault();
     setBusy(true);
     setMessage("");
-    const res = await fetch("/api/stock", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...form,
-        quantity: Number(form.quantity),
-      }),
-    });
-    setBusy(false);
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
-      setMessage(err.error || "Ajustement impossible");
-      return;
+    try {
+      const res = await fetch("/api/stock", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...form,
+          quantity: Number(form.quantity),
+        }),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        setMessage(err.error || "Ajustement impossible");
+        return;
+      }
+      setMessage("Mouvement de stock enregistré");
+      setForm((f) => ({ ...f, quantity: "1", reason: "" }));
+      await load();
+    } catch {
+      setMessage("Connexion perdue pendant l’ajustement. Rechargez et réessayez.");
+    } finally {
+      setBusy(false);
     }
-    setMessage("Mouvement de stock enregistré");
-    setForm((f) => ({ ...f, quantity: "1", reason: "" }));
-    await load();
   }
 
   const classified = balances
