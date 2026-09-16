@@ -1,12 +1,11 @@
-import type { NextResponse } from "next/server";
-import { NextResponse as NR } from "next/server";
+import { NextResponse } from "next/server";
 import { dbHealth, isDatabaseConfigured } from "@/lib/db/client";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
   const health = await dbHealth();
-  return NR.json(
+  return NextResponse.json(
     {
       databaseConfigured: isDatabaseConfigured(),
       ...health,
