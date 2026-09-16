@@ -44,6 +44,19 @@ npm run db:setup   # migrate schema + seed from data/*.json
 curl http://127.0.0.1:3847/api/health/db
 ```
 
+### Deploy on Render (Web Service)
+
+| Setting | Value |
+|---------|--------|
+| Build Command | `npm ci && npm run build` |
+| Start Command | `npm run start` |
+| `PORT` | laissé par Render (`10000`) — l’app lit `process.env.PORT` |
+| `DATABASE_URL` | **Internal Database URL** (copier-coller **complet** depuis Postgres → Connect) |
+
+Si les logs montrent `ENOTFOUND base`, l’URL est tronquée / mal collée (le hostname doit être du type `dpg-….frankfurt-postgres.render.com`, pas `base`).
+
+Vérifier : `https://VOTRE-SERVICE.onrender.com/api/health/db`
+
 Sales / purchases / recipes still use JSON until the next migration phase.
 
 
