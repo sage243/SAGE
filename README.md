@@ -19,7 +19,7 @@ See [`docs/SAGE_PHASE0_AUDIT.md`](docs/SAGE_PHASE0_AUDIT.md) for KEEP/IMPROVE/ME
 - Dashboard (stock value, low stock, open POs, margins)
 - Clients, Fournisseurs, Produits (landed cost)
 - **Achats** — bons de commande → approbation → réception (GRN)
-- **Stock** — soldes par entrepôt, mouvements, ajustements / pertes
+- **Stock** — soldes multi-entrepôts (Gombe + Limete, qty 100–1000), mouvements simulés (ventes/réceptions/pertes/recettes), alertes d’épuisement (critique / alerte / tendance)
 - **Ventes** — devis → commande (réservation) → livraison (sortie + coût figé) → facture → paiement
 - **Recettes** — restauration/boissons : BOM → consommation stock à chaque service
 - **Rentabilité** — marges réalisées par produit / client / activité + catalogue théorique
