@@ -1,0 +1,10 @@
+{
+  "name": "SAGE Platform",
+  "install": "npm ci",
+  "terminals": [
+    {
+      "name": "dev",
+      "command": "npm run dev"
+    }
+  ]
+}

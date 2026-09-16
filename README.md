@@ -32,12 +32,20 @@ See [`docs/SAGE_PHASE0_AUDIT.md`](docs/SAGE_PHASE0_AUDIT.md) for KEEP/IMPROVE/ME
 
 Customer → Quotation → Sales Order → Stock/Procurement → Delivery → Invoice → Payment → Margin
 
-## Run locally
+## Database (Render PostgreSQL 18)
+
+Masters + stock can run on Postgres when `DATABASE_URL` is set (JSON remains the fallback).
 
 ```bash
-npm install
-npm run dev
+# .env.local — External Database URL from Render
+DATABASE_URL=postgresql://USER:PASSWORD@HOST:5432/DATABASE?sslmode=require
+
+npm run db:setup   # migrate schema + seed from data/*.json
+curl http://127.0.0.1:3847/api/health/db
 ```
+
+Sales / purchases / recipes still use JSON until the next migration phase.
+
 
 Open [http://127.0.0.1:3847](http://127.0.0.1:3847)
 

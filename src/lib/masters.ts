@@ -1,5 +1,15 @@
 import { computeLandedCost, type CurrencySettings, type Customer, type Product, type Supplier, type Warehouse } from "./domain";
 import { readCollection, readObject, writeCollection, writeObject } from "./json-db";
+import {
+  isDatabaseConfigured,
+  pgDeleteProduct,
+  pgGetCurrency,
+  pgListCustomers,
+  pgListProducts,
+  pgListSuppliers,
+  pgListWarehouses,
+  pgUpsertProduct,
+} from "@/lib/db/repos";
 import { uid } from "./utils";
 
 const SEED_WAREHOUSES: Warehouse[] = [
@@ -325,6 +335,14 @@ const SEED_CURRENCY: CurrencySettings = {
 };
 
 export async function listWarehouses() {
+  if (isDatabaseConfigured()) {
+    try {
+      const rows = await pgListWarehouses();
+      if (rows.length > 0) return rows;
+    } catch (e) {
+      console.error("[db] listWarehouses fallback JSON", e);
+    }
+  }
   return readCollection("warehouses.json", SEED_WAREHOUSES);
 }
 
@@ -345,6 +363,14 @@ export async function saveWarehouse(input: Omit<Warehouse, "id" | "updatedAt"> &
 }
 
 export async function listSuppliers() {
+  if (isDatabaseConfigured()) {
+    try {
+      const rows = await pgListSuppliers();
+      if (rows.length > 0) return rows;
+    } catch (e) {
+      console.error("[db] listSuppliers fallback JSON", e);
+    }
+  }
   return readCollection("suppliers.json", SEED_SUPPLIERS);
 }
 
@@ -370,6 +396,14 @@ export async function saveSupplier(input: Omit<Supplier, "id" | "createdAt" | "u
 }
 
 export async function listCustomers() {
+  if (isDatabaseConfigured()) {
+    try {
+      const rows = await pgListCustomers();
+      if (rows.length > 0) return rows;
+    } catch (e) {
+      console.error("[db] listCustomers fallback JSON", e);
+    }
+  }
   return readCollection("customers.json", SEED_CUSTOMERS);
 }
 
@@ -395,6 +429,14 @@ export async function saveCustomer(input: Omit<Customer, "id" | "createdAt" | "u
 }
 
 export async function listProducts() {
+  if (isDatabaseConfigured()) {
+    try {
+      const rows = await pgListProducts();
+      if (rows.length > 0) return rows;
+    } catch (e) {
+      console.error("[db] listProducts fallback JSON", e);
+    }
+  }
   return readCollection("products-master.json", SEED_PRODUCTS);
 }
 
@@ -423,7 +465,11 @@ export async function saveProduct(
       landedCost,
       updatedAt: now,
     };
-    await writeCollection("products-master.json", items);
+    if (isDatabaseConfigured()) {
+      await pgUpsertProduct(items[idx]);
+    } else {
+      await writeCollection("products-master.json", items);
+    }
     return items[idx];
   }
   const created: Product = {
@@ -432,12 +478,20 @@ export async function saveProduct(
     landedCost,
     updatedAt: now,
   };
-  items.unshift(created);
-  await writeCollection("products-master.json", items);
+  if (isDatabaseConfigured()) {
+    await pgUpsertProduct(created);
+  } else {
+    items.unshift(created);
+    await writeCollection("products-master.json", items);
+  }
   return created;
 }
 
 export async function deleteProduct(id: string) {
+  if (isDatabaseConfigured()) {
+    await pgDeleteProduct(id);
+    return;
+  }
   const items = await listProducts();
   await writeCollection(
     "products-master.json",
@@ -446,6 +500,14 @@ export async function deleteProduct(id: string) {
 }
 
 export async function getCurrencySettings() {
+  if (isDatabaseConfigured()) {
+    try {
+      const payload = await pgGetCurrency();
+      if (payload) return payload;
+    } catch (e) {
+      console.error("[db] getCurrencySettings fallback JSON", e);
+    }
+  }
   return readObject("currency.json", SEED_CURRENCY);
 }
 

@@ -8,17 +8,42 @@ import type {
 } from "./domain";
 import { listProducts, listWarehouses, saveProduct } from "./masters";
 import { readCollection, writeCollection } from "./json-db";
+import {
+  isDatabaseConfigured,
+  pgListStockBalances,
+  pgListStockMovements,
+  pgWriteStockBalances,
+  pgWriteStockMovements,
+} from "@/lib/db/repos";
 import { uid } from "./utils";
 
 const SEED_MOVEMENTS: StockMovement[] = [];
 const SEED_BALANCES: StockBalance[] = [];
 
 export async function listStockMovements() {
+  if (isDatabaseConfigured()) {
+    try {
+      const rows = await pgListStockMovements();
+      if (rows.length > 0) return rows;
+    } catch (e) {
+      console.error("[db] listStockMovements fallback JSON", e);
+    }
+  }
   const items = await readCollection("stock-movements.json", SEED_MOVEMENTS);
   return items.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 }
 
 export async function listStockBalances() {
+  if (isDatabaseConfigured()) {
+    try {
+      const rows = await pgListStockBalances();
+      if (rows.length > 0) {
+        return rows.sort((a, b) => a.productName.localeCompare(b.productName, "fr"));
+      }
+    } catch (e) {
+      console.error("[db] listStockBalances fallback JSON", e);
+    }
+  }
   const balances = await readCollection("stock-balances.json", SEED_BALANCES);
   if (balances.length > 0) return balances.sort((a, b) => a.productName.localeCompare(b.productName, "fr"));
 
@@ -47,18 +72,26 @@ export async function listStockBalances() {
       updatedAt: new Date().toISOString(),
     });
   }
-  await writeCollection("stock-balances.json", seeded);
+  await writeBalances(seeded);
   return seeded;
 }
 
 async function writeBalances(items: StockBalance[]) {
+  if (isDatabaseConfigured()) {
+    await pgWriteStockBalances(items);
+    return;
+  }
   await writeCollection("stock-balances.json", items);
 }
 
 async function appendMovement(movement: StockMovement) {
   const items = await listStockMovements();
   items.unshift(movement);
-  await writeCollection("stock-movements.json", items);
+  if (isDatabaseConfigured()) {
+    await pgWriteStockMovements(items);
+  } else {
+    await writeCollection("stock-movements.json", items);
+  }
   return movement;
 }
 
