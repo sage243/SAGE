@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 /** Production start — bind to Render's PORT (default 10000) or local 3847. */
-const { spawn } = require("child_process");
+import { spawn } from "node:child_process";
+import { createRequire } from "node:module";
 
+const require = createRequire(import.meta.url);
 const port = process.env.PORT || "3847";
 const nextBin = require.resolve("next/dist/bin/next");
 
@@ -12,6 +14,9 @@ const child = spawn(
 );
 
 child.on("exit", (code, signal) => {
-  if (signal) process.kill(process.pid, signal);
+  if (signal) {
+    process.kill(process.pid, signal);
+    return;
+  }
   process.exit(code ?? 1);
 });
