@@ -23,7 +23,7 @@ export default async function GestionDashboardPage() {
       <div>
         <h1 className="font-display text-3xl font-semibold text-white">Tableau de bord</h1>
         <p className="mt-2 text-sm text-sand/65">
-          Phase 4–5 — rentabilité réalisée (coût figé) et KPIs trésorerie USD / CDF.
+          Phase 6 — recettes restauration (conso. stock) + rentabilité et KPIs USD/CDF.
         </p>
         <p className="mt-1 text-xs text-sand/45">
           FX : 1 USD = {dash.fxUsdToCdf.toLocaleString("fr-CD")} CDF
@@ -71,7 +71,13 @@ export default async function GestionDashboardPage() {
       </div>
 
       <div className="flex flex-wrap gap-3">
-        <Link href="/gestion/rentabilite" className={cn(buttonVariants(), "bg-copper text-accent-foreground")}>
+        <Link href="/gestion/recettes" className={cn(buttonVariants(), "bg-copper text-accent-foreground")}>
+          Recettes
+        </Link>
+        <Link
+          href="/gestion/rentabilite"
+          className={cn(buttonVariants({ variant: "outline" }), "border-white/20 bg-transparent text-sand")}
+        >
           Rentabilité
         </Link>
         <Link
