@@ -22,6 +22,10 @@ export const metadata: Metadata = {
   },
   description:
     "Plateforme corporate de SAVE AFRICA GROUP FOR EXCELLENCE (SAGE SARL) pour gérer et commercialiser les produits et services issus de l’objet social (Article 2).",
+  icons: {
+    icon: [{ url: "/brand/favicon-32.png", sizes: "32x32", type: "image/png" }],
+    apple: [{ url: "/brand/apple-touch-icon.png", sizes: "180x180" }],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -11,10 +12,21 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">SAGE SARL</p>
-      <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-sage-deep">
-        Contact & siège
-      </h1>
+      <div className="flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">SAGE SARL</p>
+          <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-sage-deep">
+            Contact & siège
+          </h1>
+        </div>
+        <Image
+          src="/brand/sage-sceau.webp"
+          alt="Sceau officiel SAGE SARL"
+          width={120}
+          height={120}
+          className="h-24 w-24 rounded-full bg-white object-contain p-1 shadow-sm ring-1 ring-primary/10"
+        />
+      </div>
 
       <div className="mt-10 grid gap-10 lg:grid-cols-2">
         <div className="space-y-6">
@@ -28,6 +40,31 @@ export default function ContactPage() {
               Immeuble Masamba, 1er étage, Local 1
               <br />
               Commune de la Gombe, Kinshasa / RDC
+            </p>
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              Coordonnées
+            </p>
+            <p className="mt-2 text-base leading-relaxed">
+              Tél. :{" "}
+              <a className="text-primary hover:underline" href="tel:+243860619094">
+                +243 860 619 094
+              </a>{" "}
+              /{" "}
+              <a className="text-primary hover:underline" href="tel:+243995476748">
+                995 476 748
+              </a>
+              <br />
+              E-mail :{" "}
+              <a className="text-primary hover:underline" href="mailto:info@sage-rdc.com">
+                info@sage-rdc.com
+              </a>
+              <br />
+              Web :{" "}
+              <a className="text-primary hover:underline" href="https://sage-rdc.com">
+                www.sage-rdc.com
+              </a>
             </p>
           </div>
           <div>
@@ -67,6 +104,13 @@ export default function ContactPage() {
             }}
           />
           <div className="relative flex h-full flex-col justify-end p-8">
+            <Image
+              src="/brand/sage-mark.webp"
+              alt=""
+              width={72}
+              height={72}
+              className="mb-4 h-14 w-14 object-contain brightness-0 invert"
+            />
             <p className="font-display text-3xl font-semibold">Kinshasa — Gombe</p>
             <p className="mt-2 max-w-sm text-sm text-sand/80">
               Hub commercial pour servir Kinshasa et rayonner vers les provinces, conformément à

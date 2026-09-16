@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -9,12 +10,21 @@ export function SiteFooter() {
 
   return (
     <footer className="border-t border-primary/10 bg-sage-deep text-sand">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.5fr_1fr_0.9fr]">
         <div>
-          <p className="font-display text-3xl font-semibold tracking-tight">SAGE SARL</p>
-          <p className="mt-2 max-w-sm text-sm leading-relaxed text-sand/75">
+          <Image
+            src="/brand/sage-logo.webp"
+            alt="SAGE — Save Africa Group for Excellence SARL"
+            width={280}
+            height={76}
+            className="h-14 w-auto object-contain object-left brightness-0 invert"
+          />
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-sand/75">
             SAVE AFRICA GROUP FOR EXCELLENCE — société à responsabilité limitée basée à
             Kinshasa (Gombe), régie par l’OHADA.
+          </p>
+          <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-copper">
+            Excellence · Intégrité · Innovation · Impact
           </p>
         </div>
         <div>
@@ -26,17 +36,16 @@ export function SiteFooter() {
             <br />
             Commune de la Gombe, Kinshasa / RDC
           </p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-copper">
-            Plateforme
+          <p className="mt-3 text-sm text-sand/75">
+            <a href="tel:+243860619094" className="hover:text-white">
+              +243 860 619 094
+            </a>
+            {" · "}
+            <a href="mailto:info@sage-rdc.com" className="hover:text-white">
+              info@sage-rdc.com
+            </a>
           </p>
-          <ul className="mt-3 space-y-2 text-sm text-sand/85">
-            <li>
-              <Link href="/plan" className="hover:text-white">
-                Plan réaliste
-              </Link>
-            </li>
+          <ul className="mt-4 space-y-2 text-sm text-sand/85">
             <li>
               <Link href="/catalogue" className="hover:text-white">
                 Catalogue
@@ -48,6 +57,16 @@ export function SiteFooter() {
               </Link>
             </li>
           </ul>
+        </div>
+        <div className="flex flex-col items-start md:items-end">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-copper">Sceau</p>
+          <Image
+            src="/brand/sage-sceau.webp"
+            alt="Sceau SAGE SARL"
+            width={160}
+            height={160}
+            className="mt-3 h-28 w-28 rounded-full bg-white object-contain p-1 shadow-sm md:h-32 md:w-32"
+          />
         </div>
       </div>
       <div className="border-t border-white/10 py-4 text-center text-xs text-sand/55">

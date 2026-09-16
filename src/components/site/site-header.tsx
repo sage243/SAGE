@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
@@ -31,13 +32,15 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-primary/10 bg-[#f7f4ee]/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <Link href="/" className="group flex items-baseline gap-2">
-          <span className="font-display text-2xl font-semibold tracking-tight text-primary">
-            SAGE
-          </span>
-          <span className="hidden text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground sm:inline">
-            Save Africa Group
-          </span>
+        <Link href="/" className="group flex items-center gap-2.5" aria-label="SAGE — Accueil">
+          <Image
+            src="/brand/sage-logo.webp"
+            alt="SAGE — Save Africa Group for Excellence"
+            width={220}
+            height={60}
+            priority
+            className="h-10 w-auto object-contain object-left sm:h-11"
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
@@ -75,7 +78,15 @@ export function SiteHeader() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px]">
               <SheetHeader>
-                <SheetTitle className="font-display text-left text-primary">SAGE</SheetTitle>
+                <SheetTitle className="text-left">
+                  <Image
+                    src="/brand/sage-mark.webp"
+                    alt="SAGE"
+                    width={48}
+                    height={48}
+                    className="h-10 w-10 object-contain"
+                  />
+                </SheetTitle>
               </SheetHeader>
               <div className="mt-6 flex flex-col gap-1 px-2">
                 {links.map((link) => (
