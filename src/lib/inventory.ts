@@ -251,12 +251,32 @@ export async function createStockAdjustment(input: {
 
 export async function getInventorySnapshot() {
   const [balances, movements] = await Promise.all([listStockBalances(), listStockMovements()]);
-  const low = balances.filter((b) => b.reorderLevel > 0 && b.quantityOnHand <= b.reorderLevel);
+  const classified = balances
+    .filter((b) => b.reorderLevel > 0)
+    .map((b) => {
+      const ratio = b.quantityOnHand / b.reorderLevel;
+      let severity: "ok" | "trending" | "warning" | "critical" = "ok";
+      if (b.quantityOnHand <= 0) severity = "critical";
+      else if (ratio <= 0.5) severity = "critical";
+      else if (ratio <= 1) severity = "warning";
+      else if (ratio <= 1.25) severity = "trending";
+      return { ...b, severity, ratio };
+    });
+
+  const critical = classified.filter((b) => b.severity === "critical");
+  const warning = classified.filter((b) => b.severity === "warning");
+  const trending = classified.filter((b) => b.severity === "trending");
+  const alerts = [...critical, ...warning, ...trending].sort((a, b) => a.ratio - b.ratio);
+
   return {
     balanceLines: balances.length,
     movementCount: movements.length,
-    lowBalanceCount: low.length,
-    recentMovements: movements.slice(0, 8),
-    lowBalances: low.slice(0, 8),
+    lowBalanceCount: critical.length + warning.length,
+    criticalCount: critical.length,
+    warningCount: warning.length,
+    trendingCount: trending.length,
+    recentMovements: movements.slice(0, 12),
+    lowBalances: alerts.slice(0, 12),
+    alerts,
   };
 }

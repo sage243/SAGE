@@ -34,7 +34,7 @@
     "sellingPrice": 45,
     "currency": "USD",
     "createdAt": "2026-09-16T11:37:50.982Z",
-    "updatedAt": "2026-09-16T11:37:51.089Z"
+    "updatedAt": "2026-09-16T12:32:40.812Z"
   },
   {
     "id": "rcp_traiteur_midi",
@@ -79,6 +79,6 @@
     "sellingPrice": 6,
     "currency": "USD",
     "createdAt": "2026-09-16T11:37:50.982Z",
-    "updatedAt": "2026-09-16T11:37:51.239Z"
+    "updatedAt": "2026-09-16T12:32:40.818Z"
   }
 ]

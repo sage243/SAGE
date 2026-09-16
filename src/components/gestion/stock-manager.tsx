@@ -93,23 +93,67 @@ export function StockManager() {
     await load();
   }
 
-  const low = balances.filter((b) => b.reorderLevel > 0 && b.quantityOnHand <= b.reorderLevel);
+  const classified = balances
+    .filter((b) => b.reorderLevel > 0)
+    .map((b) => {
+      const ratio = b.quantityOnHand / b.reorderLevel;
+      let severity: "critical" | "warning" | "trending" | "ok" = "ok";
+      if (b.quantityOnHand <= 0 || ratio <= 0.5) severity = "critical";
+      else if (ratio <= 1) severity = "warning";
+      else if (ratio <= 1.25) severity = "trending";
+      return { ...b, severity, ratio };
+    });
+  const critical = classified.filter((b) => b.severity === "critical");
+  const warning = classified.filter((b) => b.severity === "warning");
+  const trending = classified.filter((b) => b.severity === "trending");
+  const alertCount = critical.length + warning.length + trending.length;
 
   return (
     <div className="space-y-6">
       <div>
         <h1 className="font-display text-3xl font-semibold text-white">Stock</h1>
         <p className="mt-2 text-sm text-sand/65">
-          Soldes par entrepôt, mouvements et ajustements (pertes, inventaire). Les réceptions d’achats
-          mettent à jour le stock automatiquement.
+          Soldes multi-entrepôts, mouvements simulés / réels, et alertes d’épuisement (critique ≤ 50%
+          seuil, alerte ≤ seuil, tendance ≤ 125% seuil).
         </p>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Stat label="Lignes de solde" value={String(balances.length)} />
         <Stat label="Mouvements" value={String(movements.length)} />
-        <Stat label="Alertes seuil" value={String(low.length)} />
+        <Stat label="Critiques" value={String(critical.length)} />
+        <Stat label="Alertes + tendances" value={String(warning.length + trending.length)} />
       </div>
+
+      {alertCount > 0 && (
+        <div className="space-y-2 border border-amber-500/30 bg-amber-500/10 p-4">
+          <p className="text-sm font-medium text-amber-100">
+            {alertCount} alerte(s) stock — réapprovisionner avant rupture
+          </p>
+          <div className="space-y-1">
+            {[...critical, ...warning, ...trending].slice(0, 8).map((b) => (
+              <p key={`${b.id}-alert`} className="text-sm text-sand/80">
+                <span
+                  className={
+                    b.severity === "critical"
+                      ? "text-rose-300"
+                      : b.severity === "warning"
+                        ? "text-amber-300"
+                        : "text-yellow-200/90"
+                  }
+                >
+                  {b.severity === "critical"
+                    ? "CRITIQUE"
+                    : b.severity === "warning"
+                      ? "ALERTE"
+                      : "TENDANCE"}
+                </span>{" "}
+                · {b.sku} · {b.warehouseName} · {b.quantityOnHand} / seuil {b.reorderLevel}
+              </p>
+            ))}
+          </div>
+        </div>
+      )}
 
       <form onSubmit={onAdjust} className="grid gap-3 rounded-md border border-white/10 bg-white/5 p-4 sm:grid-cols-2">
         <div className="space-y-2 sm:col-span-2">
@@ -208,13 +252,29 @@ export function StockManager() {
       {tab === "balances" ? (
         <div className="space-y-2">
           {balances.map((b) => {
-            const alert = b.reorderLevel > 0 && b.quantityOnHand <= b.reorderLevel;
+            const ratio = b.reorderLevel > 0 ? b.quantityOnHand / b.reorderLevel : 999;
+            const severity =
+              b.reorderLevel <= 0
+                ? "ok"
+                : b.quantityOnHand <= 0 || ratio <= 0.5
+                  ? "critical"
+                  : ratio <= 1
+                    ? "warning"
+                    : ratio <= 1.25
+                      ? "trending"
+                      : "ok";
+            const border =
+              severity === "critical"
+                ? "border-rose-500/40 bg-rose-500/10"
+                : severity === "warning"
+                  ? "border-amber-500/40 bg-amber-500/10"
+                  : severity === "trending"
+                    ? "border-yellow-500/30 bg-yellow-500/5"
+                    : "border-white/10 bg-white/5";
             return (
               <div
                 key={b.id}
-                className={`flex flex-col gap-1 border px-3 py-2 text-sm sm:flex-row sm:items-center sm:justify-between ${
-                  alert ? "border-amber-500/40 bg-amber-500/10" : "border-white/10 bg-white/5"
-                }`}
+                className={`flex flex-col gap-1 border px-3 py-2 text-sm sm:flex-row sm:items-center sm:justify-between ${border}`}
               >
                 <div>
                   <p className="font-medium text-sand">
@@ -222,7 +282,15 @@ export function StockManager() {
                   </p>
                   <p className="text-sand/55">
                     {b.warehouseName} · CMP {b.averageUnitCost.toFixed(2)} {b.currency}
-                    {alert ? ` · seuil ${b.reorderLevel}` : ""}
+                    {severity !== "ok"
+                      ? ` · seuil ${b.reorderLevel} · ${
+                          severity === "critical"
+                            ? "épuisement critique"
+                            : severity === "warning"
+                              ? "sous seuil"
+                              : "tend vers épuisement"
+                        }`
+                      : ""}
                   </p>
                 </div>
                 <p className="font-display text-lg text-white">

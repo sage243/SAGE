@@ -66,8 +66,14 @@ export default async function GestionDashboardPage() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <MiniStat label="Commandes ouvertes" value={String(dash.counts.openSalesOrders)} />
         <MiniStat label="BC ouverts" value={String(dash.counts.openPurchaseOrders)} />
-        <MiniStat label="Factures" value={String(dash.counts.invoices)} />
-        <MiniStat label="Alertes stock" value={String(dash.counts.lowStock)} />
+        <MiniStat
+          label="Stock critique"
+          value={String(dash.counts.criticalStock ?? 0)}
+        />
+        <MiniStat
+          label="Alertes / tendances"
+          value={String((dash.counts.lowStock || 0) + (dash.counts.trendingStock || 0))}
+        />
       </div>
 
       <div className="flex flex-wrap gap-3">
@@ -99,6 +105,47 @@ export default async function GestionDashboardPage() {
           Stock
         </Link>
       </div>
+
+      {dash.stockAlerts && dash.stockAlerts.length > 0 && (
+        <section>
+          <h2 className="font-display text-xl text-white">Alertes d’épuisement stock</h2>
+          <p className="mt-1 text-sm text-sand/55">
+            Critique ≤ 50% du seuil · Alerte ≤ seuil · Tendance ≤ 125% du seuil
+          </p>
+          <div className="mt-3 space-y-2">
+            {dash.stockAlerts.map((a) => (
+              <div
+                key={`${a.productId}-${a.warehouseId}`}
+                className={`border px-3 py-2 text-sm ${
+                  a.severity === "critical"
+                    ? "border-rose-500/40 bg-rose-500/10"
+                    : a.severity === "warning"
+                      ? "border-amber-500/40 bg-amber-500/10"
+                      : "border-yellow-500/30 bg-yellow-500/5"
+                }`}
+              >
+                <p className="font-medium text-sand">
+                  {a.sku} · {a.productName}
+                </p>
+                <p className="text-sand/55">
+                  {a.warehouseName} · {a.quantityOnHand} / seuil {a.reorderLevel} ·{" "}
+                  {a.severity === "critical"
+                    ? "CRITIQUE"
+                    : a.severity === "warning"
+                      ? "ALERTE"
+                      : "TENDANCE"}
+                </p>
+              </div>
+            ))}
+          </div>
+          <Link
+            href="/gestion/stock"
+            className="mt-3 inline-block text-sm text-copper hover:underline"
+          >
+            Voir le stock →
+          </Link>
+        </section>
+      )}
 
       <section className="grid gap-6 lg:grid-cols-2">
         <div>

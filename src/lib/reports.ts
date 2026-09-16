@@ -212,15 +212,27 @@ export async function getManagementDashboard() {
     balances.reduce((s, b) => s + (b.quantityReserved || 0) * b.averageUnitCost, 0),
   );
 
+  const stockAlerts = balances
+    .filter((b) => b.reorderLevel > 0)
+    .map((b) => {
+      const ratio = b.quantityOnHand / b.reorderLevel;
+      let severity: "critical" | "warning" | "trending" | "ok" = "ok";
+      if (b.quantityOnHand <= 0 || ratio <= 0.5) severity = "critical";
+      else if (ratio <= 1) severity = "warning";
+      else if (ratio <= 1.25) severity = "trending";
+      return { ...b, severity, ratio };
+    })
+    .filter((b) => b.severity !== "ok")
+    .sort((a, b) => a.ratio - b.ratio);
+
+  const lowStock = stockAlerts.filter((b) => b.severity === "critical" || b.severity === "warning").length;
+  const trendingStock = stockAlerts.filter((b) => b.severity === "trending").length;
+
   const openSales = salesOrders.filter((o) =>
     ["draft", "approved", "partial"].includes(o.status),
   ).length;
   const openPurchases = purchaseOrders.filter((p) =>
     ["draft", "approved", "partial"].includes(p.status),
-  ).length;
-
-  const lowStock = products.filter(
-    (p) => p.kind === "product" && p.reorderLevel > 0 && p.quantityOnHand <= p.reorderLevel,
   ).length;
 
   const netWorkingCapitalUsd = money(inventoryUsd + arUsd - apUsd);
@@ -256,8 +268,11 @@ export async function getManagementDashboard() {
       invoices: invoices.filter((i) => i.status !== "cancelled").length,
       payments: payments.length,
       lowStock,
+      trendingStock,
+      criticalStock: stockAlerts.filter((b) => b.severity === "critical").length,
       customersWithSales: profitability.byCustomer.length,
     },
+    stockAlerts: stockAlerts.slice(0, 10),
     topProducts: profitability.byProduct.slice(0, 5),
     topCustomers: profitability.byCustomer.slice(0, 5),
     byActivity: profitability.byActivity,
