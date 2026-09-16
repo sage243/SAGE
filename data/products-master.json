@@ -22,10 +22,10 @@
     "retailPrice": 0.79,
     "sellingCurrency": "USD",
     "priceLabel": "0.75 USD / barre · carton 23.40 USD",
-    "minStock": 100,
-    "maxStock": 1800,
-    "reorderLevel": 200,
-    "quantityOnHand": 188,
+    "minStock": 108,
+    "maxStock": 2000,
+    "reorderLevel": 180,
+    "quantityOnHand": 1025,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -37,7 +37,7 @@
       "entretien"
     ],
     "stockNote": "Carton de 36 barres",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_sav_br_001",
@@ -62,10 +62,10 @@
     "retailPrice": 0.71,
     "sellingCurrency": "USD",
     "priceLabel": "0.67 USD / barre · carton 23.20 USD",
-    "minStock": 52,
+    "minStock": 62,
     "maxStock": 2000,
     "reorderLevel": 104,
-    "quantityOnHand": 1341,
+    "quantityOnHand": 506,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -77,7 +77,7 @@
       "entretien"
     ],
     "stockNote": "Carton de 40 barres",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_sav_el_001",
@@ -102,10 +102,10 @@
     "retailPrice": 1.04,
     "sellingCurrency": "USD",
     "priceLabel": "0.99 USD / barre · carton 20.40 USD",
-    "minStock": 59,
-    "maxStock": 1982,
+    "minStock": 70,
+    "maxStock": 2000,
     "reorderLevel": 118,
-    "quantityOnHand": 1482,
+    "quantityOnHand": 1799,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -117,7 +117,7 @@
       "entretien"
     ],
     "stockNote": "Carton de 24 barres",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_sav_dm_001",
@@ -142,10 +142,10 @@
     "retailPrice": 0.51,
     "sellingCurrency": "USD",
     "priceLabel": "0.48 USD / barre · carton 21.00 USD",
-    "minStock": 20,
+    "minStock": 50,
     "maxStock": 2500,
-    "reorderLevel": 40,
-    "quantityOnHand": 526,
+    "reorderLevel": 80,
+    "quantityOnHand": 700,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -157,7 +157,7 @@
       "entretien"
     ],
     "stockNote": "Carton de 50 barres",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_hyg_mg_001",
@@ -182,10 +182,10 @@
     "retailPrice": 0.67,
     "sellingCurrency": "USD",
     "priceLabel": "0.64 USD / savon · carton 39.60 USD",
-    "minStock": 20,
+    "minStock": 50,
     "maxStock": 3600,
-    "reorderLevel": 40,
-    "quantityOnHand": 467,
+    "reorderLevel": 80,
+    "quantityOnHand": 985,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -197,7 +197,7 @@
       "hygiene"
     ],
     "stockNote": "Carton de 72 savons",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_hyg_fm_001",
@@ -222,10 +222,10 @@
     "retailPrice": 0.54,
     "sellingCurrency": "USD",
     "priceLabel": "0.52 USD / savon · carton 32.40 USD",
-    "minStock": 45,
+    "minStock": 54,
     "maxStock": 3600,
     "reorderLevel": 90,
-    "quantityOnHand": 1093,
+    "quantityOnHand": 1581,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -237,7 +237,7 @@
       "hygiene"
     ],
     "stockNote": "Carton de 72 savons",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_hyg_lx_001",
@@ -262,10 +262,10 @@
     "retailPrice": 0.91,
     "sellingCurrency": "USD",
     "priceLabel": "0.86 USD / savon · carton 54.00 USD",
-    "minStock": 22,
+    "minStock": 50,
     "maxStock": 3600,
-    "reorderLevel": 44,
-    "quantityOnHand": 548,
+    "reorderLevel": 80,
+    "quantityOnHand": 800,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -277,7 +277,7 @@
       "hygiene"
     ],
     "stockNote": "Carton de 72 savons",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_hyg_bv_001",
@@ -302,10 +302,10 @@
     "retailPrice": 0.83,
     "sellingCurrency": "USD",
     "priceLabel": "0.78 USD / savon · carton 32.64 USD",
-    "minStock": 55,
+    "minStock": 66,
     "maxStock": 2400,
     "reorderLevel": 110,
-    "quantityOnHand": 1347,
+    "quantityOnHand": 1877,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -317,7 +317,7 @@
       "hygiene"
     ],
     "stockNote": "Carton de 48 savons",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_det_om_001",
@@ -342,10 +342,10 @@
     "retailPrice": 1.53,
     "sellingCurrency": "USD",
     "priceLabel": "1.46 USD / sachet · carton 30.00 USD",
-    "minStock": 46,
-    "maxStock": 1662,
+    "minStock": 55,
+    "maxStock": 2000,
     "reorderLevel": 92,
-    "quantityOnHand": 1162,
+    "quantityOnHand": 1876,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -357,7 +357,7 @@
       "entretien"
     ],
     "stockNote": "Carton de 24 sachets",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_det_om_002",
@@ -382,10 +382,10 @@
     "retailPrice": 0.12,
     "sellingCurrency": "USD",
     "priceLabel": "0.11 USD / dosette · carton 20.00 USD",
-    "minStock": 100,
+    "minStock": 108,
     "maxStock": 10000,
-    "reorderLevel": 200,
-    "quantityOnHand": 242,
+    "reorderLevel": 180,
+    "quantityOnHand": 1152,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -397,7 +397,7 @@
       "entretien"
     ],
     "stockNote": "Carton de 200 dosettes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_det_sm_001",
@@ -422,10 +422,10 @@
     "retailPrice": 0.85,
     "sellingCurrency": "USD",
     "priceLabel": "0.81 USD / sachet · carton 21.00 USD",
-    "minStock": 29,
-    "maxStock": 1500,
-    "reorderLevel": 59,
-    "quantityOnHand": 781,
+    "minStock": 50,
+    "maxStock": 2000,
+    "reorderLevel": 80,
+    "quantityOnHand": 1831,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -437,7 +437,7 @@
       "entretien"
     ],
     "stockNote": "Carton de 30 sachets",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_det_vm_001",
@@ -462,10 +462,10 @@
     "retailPrice": 1.1,
     "sellingCurrency": "USD",
     "priceLabel": "1.04 USD / boîte · carton 21.60 USD",
-    "minStock": 68,
+    "minStock": 81,
     "maxStock": 2210,
     "reorderLevel": 136,
-    "quantityOnHand": 1710,
+    "quantityOnHand": 1552,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -477,7 +477,7 @@
       "entretien"
     ],
     "stockNote": "Carton de 24 boîtes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_ali_bb_001",
@@ -502,10 +502,10 @@
     "retailPrice": 1.35,
     "sellingCurrency": "USD",
     "priceLabel": "1.28 USD / boîte · carton 26.40 USD",
-    "minStock": 51,
-    "maxStock": 1778,
+    "minStock": 61,
+    "maxStock": 2000,
     "reorderLevel": 102,
-    "quantityOnHand": 1328,
+    "quantityOnHand": 1608,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -517,7 +517,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 24 boîtes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_ali_bb_002",
@@ -542,10 +542,10 @@
     "retailPrice": 2.5,
     "sellingCurrency": "USD",
     "priceLabel": "2.37 USD / boîte · carton 24.60 USD",
-    "minStock": 29,
-    "maxStock": 1249,
-    "reorderLevel": 59,
-    "quantityOnHand": 821,
+    "minStock": 50,
+    "maxStock": 2000,
+    "reorderLevel": 80,
+    "quantityOnHand": 1757,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -557,7 +557,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 12 boîtes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_ali_bn_001",
@@ -582,10 +582,10 @@
     "retailPrice": 2.08,
     "sellingCurrency": "USD",
     "priceLabel": "1.97 USD / pot · carton 20.40 USD",
-    "minStock": 20,
-    "maxStock": 998,
-    "reorderLevel": 40,
-    "quantityOnHand": 554,
+    "minStock": 50,
+    "maxStock": 2000,
+    "reorderLevel": 80,
+    "quantityOnHand": 1630,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -597,7 +597,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 12 pots",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_ali_sb_001",
@@ -622,10 +622,10 @@
     "retailPrice": 11.61,
     "sellingCurrency": "USD",
     "priceLabel": "11.02 USD / bidon · carton 38.00 USD",
-    "minStock": 20,
-    "maxStock": 1022,
-    "reorderLevel": 41,
-    "quantityOnHand": 522,
+    "minStock": 50,
+    "maxStock": 2000,
+    "reorderLevel": 80,
+    "quantityOnHand": 1778,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -637,7 +637,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 4 bidons",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_ali_sb_002",
@@ -662,10 +662,10 @@
     "retailPrice": 2.56,
     "sellingCurrency": "USD",
     "priceLabel": "2.43 USD / bouteille · carton 25.20 USD",
-    "minStock": 51,
-    "maxStock": 1790,
+    "minStock": 61,
+    "maxStock": 2000,
     "reorderLevel": 103,
-    "quantityOnHand": 1322,
+    "quantityOnHand": 1964,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -677,7 +677,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 12 bouteilles",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_ali_pl_001",
@@ -702,10 +702,10 @@
     "retailPrice": 27.41,
     "sellingCurrency": "USD",
     "priceLabel": "26.02 USD / carton (Carton de 10 kg)",
-    "minStock": 46,
-    "maxStock": 1657,
+    "minStock": 55,
+    "maxStock": 2000,
     "reorderLevel": 92,
-    "quantityOnHand": 1157,
+    "quantityOnHand": 1448,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -717,7 +717,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 10 kg",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_ali_th_001",
@@ -742,10 +742,10 @@
     "retailPrice": 4.28,
     "sellingCurrency": "USD",
     "priceLabel": "4.07 USD / boîte · carton 84.00 USD",
-    "minStock": 50,
-    "maxStock": 1770,
+    "minStock": 60,
+    "maxStock": 2000,
     "reorderLevel": 101,
-    "quantityOnHand": 1300,
+    "quantityOnHand": 1655,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -757,7 +757,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 24 boîtes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_ali_th_002",
@@ -782,10 +782,10 @@
     "retailPrice": 0.48,
     "sellingCurrency": "USD",
     "priceLabel": "0.46 USD / sachet · carton 20.00 USD",
-    "minStock": 27,
+    "minStock": 50,
     "maxStock": 2500,
-    "reorderLevel": 54,
-    "quantityOnHand": 678,
+    "reorderLevel": 80,
+    "quantityOnHand": 1717,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -797,7 +797,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 50 sachets",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_ali_kn_001",
@@ -822,10 +822,10 @@
     "retailPrice": 1.96,
     "sellingCurrency": "USD",
     "priceLabel": "1.86 USD / boîte · carton 51.20 USD",
-    "minStock": 54,
-    "maxStock": 1852,
+    "minStock": 64,
+    "maxStock": 2000,
     "reorderLevel": 108,
-    "quantityOnHand": 1336,
+    "quantityOnHand": 322,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -837,7 +837,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 32 boîtes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_msv_hyg_ps_001",
@@ -862,10 +862,10 @@
     "retailPrice": 0.64,
     "sellingCurrency": "USD",
     "priceLabel": "0.60 USD / tube · carton 37.44 USD",
-    "minStock": 100,
+    "minStock": 108,
     "maxStock": 3600,
-    "reorderLevel": 200,
-    "quantityOnHand": 154,
+    "reorderLevel": 180,
+    "quantityOnHand": 801,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -877,7 +877,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 72 tubes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_sco_st_001",
@@ -902,10 +902,10 @@
     "retailPrice": 0.15,
     "sellingCurrency": "USD",
     "priceLabel": "0.14 USD / stylo · carton 120.00 USD",
-    "minStock": 24,
-    "maxStock": 1105,
-    "reorderLevel": 48,
-    "quantityOnHand": 617,
+    "minStock": 50,
+    "maxStock": 2000,
+    "reorderLevel": 80,
+    "quantityOnHand": 1629,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -917,7 +917,7 @@
       "papeterie"
     ],
     "stockNote": "Boîte de 50 stylos (20x)",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_sco_ch_003",
@@ -942,10 +942,10 @@
     "retailPrice": 0.88,
     "sellingCurrency": "USD",
     "priceLabel": "0.83 USD / cahier · carton 35.00 USD",
-    "minStock": 53,
-    "maxStock": 1828,
+    "minStock": 63,
+    "maxStock": 2000,
     "reorderLevel": 106,
-    "quantityOnHand": 1313,
+    "quantityOnHand": 1643,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -957,7 +957,7 @@
       "papeterie"
     ],
     "stockNote": "Carton de 50 cahiers",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_sco_ch_002",
@@ -982,10 +982,10 @@
     "retailPrice": 0.47,
     "sellingCurrency": "USD",
     "priceLabel": "0.45 USD / cahier · carton 30.40 USD",
-    "minStock": 47,
-    "maxStock": 1690,
+    "minStock": 57,
+    "maxStock": 2000,
     "reorderLevel": 95,
-    "quantityOnHand": 1219,
+    "quantityOnHand": 1480,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -997,7 +997,7 @@
       "papeterie"
     ],
     "stockNote": "Carton de 80 cahiers",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_sco_ch_001",
@@ -1022,10 +1022,10 @@
     "retailPrice": 0.28,
     "sellingCurrency": "USD",
     "priceLabel": "0.26 USD / cahier · carton 22.00 USD",
-    "minStock": 59,
-    "maxStock": 1990,
+    "minStock": 71,
+    "maxStock": 2000,
     "reorderLevel": 119,
-    "quantityOnHand": 1490,
+    "quantityOnHand": 1519,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1037,7 +1037,7 @@
       "papeterie"
     ],
     "stockNote": "Carton de 100 cahiers",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_men_ins_01",
@@ -1062,10 +1062,10 @@
     "retailPrice": 4,
     "sellingCurrency": "USD",
     "priceLabel": "3.78 USD / bombe · carton 38.40 USD",
-    "minStock": 20,
-    "maxStock": 1018,
-    "reorderLevel": 41,
-    "quantityOnHand": 518,
+    "minStock": 50,
+    "maxStock": 2000,
+    "reorderLevel": 80,
+    "quantityOnHand": 421,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1077,7 +1077,7 @@
       "ménage"
     ],
     "stockNote": "Carton de 12 bombes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_men_pil_01",
@@ -1102,10 +1102,10 @@
     "retailPrice": 1.5,
     "sellingCurrency": "USD",
     "priceLabel": "1.42 USD / pack · carton 28.80 USD",
-    "minStock": 60,
+    "minStock": 72,
     "maxStock": 2018,
     "reorderLevel": 121,
-    "quantityOnHand": 1518,
+    "quantityOnHand": 642,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1117,7 +1117,7 @@
       "électrique"
     ],
     "stockNote": "Carton de 24 packs (4 pcs)",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_men_amp_01",
@@ -1142,10 +1142,10 @@
     "retailPrice": 1.19,
     "sellingCurrency": "USD",
     "priceLabel": "1.12 USD / unité · carton 47.50 USD",
-    "minStock": 46,
-    "maxStock": 1674,
+    "minStock": 55,
+    "maxStock": 2000,
     "reorderLevel": 93,
-    "quantityOnHand": 1224,
+    "quantityOnHand": 1543,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1157,7 +1157,7 @@
       "électrique"
     ],
     "stockNote": "Carton de 50 unités",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_men_al_001",
@@ -1182,10 +1182,10 @@
     "retailPrice": 0.31,
     "sellingCurrency": "USD",
     "priceLabel": "0.29 USD / paquet · carton 12.50 USD",
-    "minStock": 39,
-    "maxStock": 1496,
-    "reorderLevel": 79,
-    "quantityOnHand": 996,
+    "minStock": 50,
+    "maxStock": 2000,
+    "reorderLevel": 80,
+    "quantityOnHand": 617,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1197,7 +1197,7 @@
       "ménage"
     ],
     "stockNote": "Carton de 50 paquets",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_hyg_sv_001",
@@ -1222,10 +1222,10 @@
     "retailPrice": 0.75,
     "sellingCurrency": "USD",
     "priceLabel": "0.71 USD / savon · carton 43.20 USD",
-    "minStock": 48,
-    "maxStock": 1721,
+    "minStock": 58,
+    "maxStock": 2000,
     "reorderLevel": 97,
-    "quantityOnHand": 1221,
+    "quantityOnHand": 767,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1237,7 +1237,7 @@
       "hygiène"
     ],
     "stockNote": "Carton de 72 savons",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_hyg_dt_002",
@@ -1262,10 +1262,10 @@
     "retailPrice": 1.5,
     "sellingCurrency": "USD",
     "priceLabel": "1.42 USD / tube · carton 57.60 USD",
-    "minStock": 35,
-    "maxStock": 1382,
-    "reorderLevel": 70,
-    "quantityOnHand": 882,
+    "minStock": 50,
+    "maxStock": 2000,
+    "reorderLevel": 80,
+    "quantityOnHand": 1399,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1277,7 +1277,7 @@
       "hygiène"
     ],
     "stockNote": "Carton de 48 tubes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_hyg_dt_001",
@@ -1302,10 +1302,10 @@
     "retailPrice": 0.6,
     "sellingCurrency": "USD",
     "priceLabel": "0.57 USD / tube · carton 34.56 USD",
-    "minStock": 44,
-    "maxStock": 1607,
+    "minStock": 52,
+    "maxStock": 2000,
     "reorderLevel": 88,
-    "quantityOnHand": 1107,
+    "quantityOnHand": 1322,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1317,7 +1317,7 @@
       "hygiène"
     ],
     "stockNote": "Carton de 72 tubes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_hyg_lm_001",
@@ -1342,10 +1342,10 @@
     "retailPrice": 0.12,
     "sellingCurrency": "USD",
     "priceLabel": "0.12 USD / lame · carton 20.00 USD",
-    "minStock": 39,
-    "maxStock": 1496,
-    "reorderLevel": 79,
-    "quantityOnHand": 996,
+    "minStock": 50,
+    "maxStock": 2000,
+    "reorderLevel": 80,
+    "quantityOnHand": 1539,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1357,7 +1357,7 @@
       "hygiène"
     ],
     "stockNote": "Boîte de 100 lames (20x)",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_hyg_sh_001",
@@ -1382,10 +1382,10 @@
     "retailPrice": 0.98,
     "sellingCurrency": "USD",
     "priceLabel": "0.92 USD / paquet · carton 37.44 USD",
-    "minStock": 69,
+    "minStock": 82,
     "maxStock": 2226,
     "reorderLevel": 138,
-    "quantityOnHand": 1726,
+    "quantityOnHand": 677,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1397,7 +1397,7 @@
       "hygiène"
     ],
     "stockNote": "Carton de 48 paquets",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_boi_js_001",
@@ -1422,10 +1422,10 @@
     "retailPrice": 0.81,
     "sellingCurrency": "USD",
     "priceLabel": "0.77 USD / canette · carton 15.60 USD",
-    "minStock": 43,
-    "maxStock": 1580,
+    "minStock": 51,
+    "maxStock": 2000,
     "reorderLevel": 86,
-    "quantityOnHand": 1080,
+    "quantityOnHand": 1947,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1437,7 +1437,7 @@
       "boissons"
     ],
     "stockNote": "Pack de 24 canettes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_cf_001",
@@ -1462,10 +1462,10 @@
     "retailPrice": 3.5,
     "sellingCurrency": "USD",
     "priceLabel": "3.30 USD / sachet · carton 28.00 USD",
-    "minStock": 57,
-    "maxStock": 1925,
+    "minStock": 68,
+    "maxStock": 2000,
     "reorderLevel": 114,
-    "quantityOnHand": 1425,
+    "quantityOnHand": 1156,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1477,7 +1477,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 10 sachets",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_inf_01",
@@ -1502,10 +1502,10 @@
     "retailPrice": 2.62,
     "sellingCurrency": "USD",
     "priceLabel": "2.48 USD / boîte · carton 50.40 USD",
-    "minStock": 58,
-    "maxStock": 1953,
+    "minStock": 69,
+    "maxStock": 2000,
     "reorderLevel": 116,
-    "quantityOnHand": 1476,
+    "quantityOnHand": 629,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1517,7 +1517,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 24 boîtes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_yg_001",
@@ -1542,10 +1542,10 @@
     "retailPrice": 0.69,
     "sellingCurrency": "USD",
     "priceLabel": "0.65 USD / pot · carton 26.40 USD",
-    "minStock": 40,
-    "maxStock": 1505,
+    "minStock": 50,
+    "maxStock": 2000,
     "reorderLevel": 80,
-    "quantityOnHand": 1005,
+    "quantityOnHand": 605,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1557,7 +1557,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 48 pots",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_fr_001",
@@ -1582,10 +1582,10 @@
     "retailPrice": 1.62,
     "sellingCurrency": "USD",
     "priceLabel": "1.53 USD / boîte · carton 46.80 USD",
-    "minStock": 57,
-    "maxStock": 1934,
+    "minStock": 68,
+    "maxStock": 2000,
     "reorderLevel": 114,
-    "quantityOnHand": 1434,
+    "quantityOnHand": 399,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1597,7 +1597,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 36 boîtes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_ch_002",
@@ -1622,10 +1622,10 @@
     "retailPrice": 0.15,
     "sellingCurrency": "USD",
     "priceLabel": "0.14 USD / stick · carton 12.00 USD",
-    "minStock": 61,
+    "minStock": 73,
     "maxStock": 2033,
     "reorderLevel": 122,
-    "quantityOnHand": 1533,
+    "quantityOnHand": 821,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1637,7 +1637,7 @@
       "alimentaire"
     ],
     "stockNote": "Présentoir de 100 sticks",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_ch_001",
@@ -1662,10 +1662,10 @@
     "retailPrice": 2.31,
     "sellingCurrency": "USD",
     "priceLabel": "2.18 USD / pot · carton 22.20 USD",
-    "minStock": 28,
-    "maxStock": 1209,
-    "reorderLevel": 56,
-    "quantityOnHand": 677,
+    "minStock": 50,
+    "maxStock": 2000,
+    "reorderLevel": 80,
+    "quantityOnHand": 759,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1677,7 +1677,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 12 pots",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_bs_001",
@@ -1702,10 +1702,10 @@
     "retailPrice": 0.44,
     "sellingCurrency": "USD",
     "priceLabel": "0.41 USD / sachet · carton 16.80 USD",
-    "minStock": 72,
+    "minStock": 86,
     "maxStock": 2308,
     "reorderLevel": 144,
-    "quantityOnHand": 1808,
+    "quantityOnHand": 245,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1717,7 +1717,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 48 sachets",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_av_001",
@@ -1742,10 +1742,10 @@
     "retailPrice": 1.69,
     "sellingCurrency": "USD",
     "priceLabel": "1.59 USD / boîte · carton 32.40 USD",
-    "minStock": 54,
-    "maxStock": 1850,
+    "minStock": 64,
+    "maxStock": 2000,
     "reorderLevel": 108,
-    "quantityOnHand": 1360,
+    "quantityOnHand": 663,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1757,7 +1757,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 24 boîtes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_lt_002",
@@ -1782,10 +1782,10 @@
     "retailPrice": 2.62,
     "sellingCurrency": "USD",
     "priceLabel": "2.48 USD / sachet · carton 50.40 USD",
-    "minStock": 53,
-    "maxStock": 1832,
+    "minStock": 63,
+    "maxStock": 2000,
     "reorderLevel": 106,
-    "quantityOnHand": 1332,
+    "quantityOnHand": 1307,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1797,7 +1797,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 24 sachets",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_lt_001",
@@ -1822,10 +1822,10 @@
     "retailPrice": 118.75,
     "sellingCurrency": "USD",
     "priceLabel": "112.10 USD / sac · carton 95.00 USD",
-    "minStock": 71,
+    "minStock": 85,
     "maxStock": 2285,
     "reorderLevel": 142,
-    "quantityOnHand": 1785,
+    "quantityOnHand": 1203,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1837,7 +1837,7 @@
       "alimentaire"
     ],
     "stockNote": "Sac de 25 kg",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_pt_001",
@@ -1862,10 +1862,10 @@
     "retailPrice": 0.85,
     "sellingCurrency": "USD",
     "priceLabel": "0.80 USD / paquet · carton 13.60 USD",
-    "minStock": 48,
-    "maxStock": 1706,
+    "minStock": 57,
+    "maxStock": 2000,
     "reorderLevel": 96,
-    "quantityOnHand": 1193,
+    "quantityOnHand": 1127,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1877,7 +1877,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 20 paquets",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_ep_003",
@@ -1902,10 +1902,10 @@
     "retailPrice": 0.06,
     "sellingCurrency": "USD",
     "priceLabel": "0.06 USD / dosette · carton 25.00 USD",
-    "minStock": 49,
-    "maxStock": 1739,
+    "minStock": 59,
+    "maxStock": 2000,
     "reorderLevel": 99,
-    "quantityOnHand": 1239,
+    "quantityOnHand": 1530,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1917,7 +1917,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 500 dosettes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_ep_002",
@@ -1942,10 +1942,10 @@
     "retailPrice": 1.56,
     "sellingCurrency": "USD",
     "priceLabel": "1.47 USD / sachet · carton 25.00 USD",
-    "minStock": 61,
+    "minStock": 73,
     "maxStock": 2033,
     "reorderLevel": 122,
-    "quantityOnHand": 1497,
+    "quantityOnHand": 1462,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1957,7 +1957,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 20 sachets",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_ep_001",
@@ -1982,10 +1982,10 @@
     "retailPrice": 1.75,
     "sellingCurrency": "USD",
     "priceLabel": "1.65 USD / boîte · carton 56.00 USD",
-    "minStock": 23,
-    "maxStock": 1087,
-    "reorderLevel": 46,
-    "quantityOnHand": 637,
+    "minStock": 50,
+    "maxStock": 2000,
+    "reorderLevel": 80,
+    "quantityOnHand": 1419,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -1997,7 +1997,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 40 boîtes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_tm_002",
@@ -2022,10 +2022,10 @@
     "retailPrice": 1.44,
     "sellingCurrency": "USD",
     "priceLabel": "1.36 USD / boîte · carton 27.60 USD",
-    "minStock": 40,
-    "maxStock": 1508,
+    "minStock": 50,
+    "maxStock": 2000,
     "reorderLevel": 80,
-    "quantityOnHand": 1044,
+    "quantityOnHand": 391,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -2037,7 +2037,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 24 boîtes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_tm_001",
@@ -2062,10 +2062,10 @@
     "retailPrice": 0.4,
     "sellingCurrency": "USD",
     "priceLabel": "0.38 USD / sachet · carton 32.00 USD",
-    "minStock": 100,
-    "maxStock": 624,
-    "reorderLevel": 200,
-    "quantityOnHand": 124,
+    "minStock": 108,
+    "maxStock": 2000,
+    "reorderLevel": 180,
+    "quantityOnHand": 275,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -2077,7 +2077,7 @@
       "alimentaire"
     ],
     "stockNote": "Pack de 100 sachets",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_my_002",
@@ -2102,10 +2102,10 @@
     "retailPrice": 1.38,
     "sellingCurrency": "USD",
     "priceLabel": "1.30 USD / sachet · carton 26.40 USD",
-    "minStock": 20,
-    "maxStock": 833,
-    "reorderLevel": 40,
-    "quantityOnHand": 375,
+    "minStock": 50,
+    "maxStock": 2000,
+    "reorderLevel": 80,
+    "quantityOnHand": 1389,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -2117,7 +2117,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 24 sachets",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_my_001",
@@ -2142,10 +2142,10 @@
     "retailPrice": 2.75,
     "sellingCurrency": "USD",
     "priceLabel": "2.60 USD / bocal · carton 26.40 USD",
-    "minStock": 29,
-    "maxStock": 1234,
-    "reorderLevel": 58,
-    "quantityOnHand": 734,
+    "minStock": 50,
+    "maxStock": 2000,
+    "reorderLevel": 80,
+    "quantityOnHand": 1327,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -2157,7 +2157,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 12 bocaux",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_pl_003",
@@ -2182,10 +2182,10 @@
     "retailPrice": 1.81,
     "sellingCurrency": "USD",
     "priceLabel": "1.71 USD / boîte · carton 34.80 USD",
-    "minStock": 36,
-    "maxStock": 1408,
-    "reorderLevel": 72,
-    "quantityOnHand": 908,
+    "minStock": 50,
+    "maxStock": 2000,
+    "reorderLevel": 80,
+    "quantityOnHand": 1391,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -2197,7 +2197,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 24 boîtes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_sd_002",
@@ -2222,10 +2222,10 @@
     "retailPrice": 0.9,
     "sellingCurrency": "USD",
     "priceLabel": "0.85 USD / boîte · carton 36.00 USD",
-    "minStock": 64,
+    "minStock": 76,
     "maxStock": 2105,
     "reorderLevel": 128,
-    "quantityOnHand": 1640,
+    "quantityOnHand": 1301,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -2237,7 +2237,7 @@
       "alimentaire"
     ],
     "stockNote": "Caisse de 50 boîtes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_sd_001",
@@ -2262,10 +2262,10 @@
     "retailPrice": 1.02,
     "sellingCurrency": "USD",
     "priceLabel": "0.97 USD / boîte · carton 41.00 USD",
-    "minStock": 100,
-    "maxStock": 642,
-    "reorderLevel": 200,
-    "quantityOnHand": 200,
+    "minStock": 108,
+    "maxStock": 2000,
+    "reorderLevel": 180,
+    "quantityOnHand": 826,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -2277,7 +2277,7 @@
       "alimentaire"
     ],
     "stockNote": "Caisse de 50 boîtes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_cb_002",
@@ -2302,10 +2302,10 @@
     "retailPrice": 3,
     "sellingCurrency": "USD",
     "priceLabel": "2.83 USD / boîte · carton 57.60 USD",
-    "minStock": 45,
-    "maxStock": 1633,
+    "minStock": 54,
+    "maxStock": 2000,
     "reorderLevel": 90,
-    "quantityOnHand": 1133,
+    "quantityOnHand": 490,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -2317,7 +2317,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 24 boîtes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_blx_ali_cb_001",
@@ -2342,10 +2342,10 @@
     "retailPrice": 3.19,
     "sellingCurrency": "USD",
     "priceLabel": "3.01 USD / boîte · carton 61.20 USD",
-    "minStock": 29,
-    "maxStock": 1240,
-    "reorderLevel": 59,
-    "quantityOnHand": 778,
+    "minStock": 50,
+    "maxStock": 2000,
+    "reorderLevel": 80,
+    "quantityOnHand": 445,
     "supplierId": "sup_beltexco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -2357,7 +2357,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 24 boîtes",
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_riz_25",
@@ -2381,10 +2381,10 @@
     "retailPrice": 38,
     "sellingCurrency": "USD",
     "priceLabel": "34–38 USD / sac",
-    "minStock": 49,
-    "maxStock": 1727,
+    "minStock": 58,
+    "maxStock": 2000,
     "reorderLevel": 98,
-    "quantityOnHand": 1237.4,
+    "quantityOnHand": 967,
     "supplierId": "sup_riz_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -2397,7 +2397,7 @@
     ],
     "stockNote": "Réassort 2× / semaine",
     "landedCost": 30.5,
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_huile_5",
@@ -2420,10 +2420,10 @@
     "retailPrice": 13,
     "sellingCurrency": "USD",
     "priceLabel": "11,8–13 USD / bidon",
-    "minStock": 100,
-    "maxStock": 660,
-    "reorderLevel": 200,
-    "quantityOnHand": 196.0,
+    "minStock": 108,
+    "maxStock": 2000,
+    "reorderLevel": 180,
+    "quantityOnHand": 341.9,
     "supplierId": "sup_huile_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -2434,7 +2434,7 @@
       "stock-bas"
     ],
     "landedCost": 10.2,
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_panier_01",
@@ -2457,10 +2457,10 @@
     "retailPrice": 48,
     "sellingCurrency": "USD",
     "priceLabel": "42–48 USD / panier",
-    "minStock": 36,
-    "maxStock": 1401,
-    "reorderLevel": 72,
-    "quantityOnHand": 976,
+    "minStock": 50,
+    "maxStock": 2000,
+    "reorderLevel": 80,
+    "quantityOnHand": 243,
     "warehouseId": "wh_limete_01",
     "status": "active",
     "featured": true,
@@ -2470,7 +2470,7 @@
       "ménages"
     ],
     "landedCost": 32,
-    "updatedAt": "2026-09-16T12:42:28.265967Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_frein_01",
@@ -2493,10 +2493,10 @@
     "retailPrice": 75,
     "sellingCurrency": "USD",
     "priceLabel": "Sur cotation · ~68–75 USD",
-    "minStock": 10,
-    "maxStock": 80,
-    "reorderLevel": 15,
-    "quantityOnHand": 22,
+    "minStock": 50,
+    "maxStock": 2000,
+    "reorderLevel": 80,
+    "quantityOnHand": 1375,
     "warehouseId": "wh_limete_01",
     "status": "draft",
     "featured": false,
@@ -2506,7 +2506,7 @@
       "B2B"
     ],
     "landedCost": 53,
-    "updatedAt": "2026-09-15T16:57:03.000Z"
+    "updatedAt": "2026-09-16T12:46:40.188Z"
   },
   {
     "id": "prd_traiteur_01",
