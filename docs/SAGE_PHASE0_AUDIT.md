@@ -310,3 +310,17 @@ Delivered in-repo:
 - UI `/gestion/rentabilite` · API `/api/reports`
 
 Next: Phase 6 restaurant & boissons (recipe → stock) — or harden reporting filters/date ranges.
+
+---
+
+## 13. Phase 6 progress (restaurant & boissons)
+
+Delivered in-repo:
+
+- Recipe BOM master (`/gestion/recettes`) with ingredients per output unit
+- **Servir / produire** posts `recipe_consumption` stock movements (frozen ingredient CMP)
+- Production log with cost, revenue, margin; optional customer
+- Seed recipes: formule midi traiteur + assemblage panier vivres
+- API `/api/recipes`
+
+Next: Phase 7 habillement (variants) or deepen restaurant POS / beverage recipes.

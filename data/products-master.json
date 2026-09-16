@@ -816,7 +816,7 @@
     "handlingCost": 0.02,
     "storageCost": 0.01,
     "otherDirectCosts": 0,
-    "landedCost": 1.66,
+    "landedCost": 1.6600000000000001,
     "sellingPrice": 1.86,
     "wholesalePrice": 1.74,
     "retailPrice": 1.96,
@@ -825,7 +825,7 @@
     "minStock": 32,
     "maxStock": 1600,
     "reorderLevel": 64,
-    "quantityOnHand": 128,
+    "quantityOnHand": 127.75,
     "supplierId": "sup_marsavco_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -837,7 +837,7 @@
       "alimentaire"
     ],
     "stockNote": "Carton de 32 boîtes",
-    "updatedAt": "2026-09-15T17:10:32.000Z"
+    "updatedAt": "2026-09-16T11:37:51.287Z"
   },
   {
     "id": "prd_msv_hyg_ps_001",
@@ -2384,7 +2384,7 @@
     "minStock": 40,
     "maxStock": 400,
     "reorderLevel": 60,
-    "quantityOnHand": 120,
+    "quantityOnHand": 119.6,
     "supplierId": "sup_riz_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -2397,7 +2397,7 @@
     ],
     "stockNote": "Réassort 2× / semaine",
     "landedCost": 30.5,
-    "updatedAt": "2026-09-15T08:00:00.000Z"
+    "updatedAt": "2026-09-16T11:37:51.253Z"
   },
   {
     "id": "prd_huile_5",
@@ -2423,7 +2423,7 @@
     "minStock": 80,
     "maxStock": 600,
     "reorderLevel": 100,
-    "quantityOnHand": 45,
+    "quantityOnHand": 44.8,
     "supplierId": "sup_huile_01",
     "warehouseId": "wh_limete_01",
     "status": "active",
@@ -2434,7 +2434,7 @@
       "stock-bas"
     ],
     "landedCost": 10.2,
-    "updatedAt": "2026-09-15T08:00:00.000Z"
+    "updatedAt": "2026-09-16T11:37:51.267Z"
   },
   {
     "id": "prd_panier_01",

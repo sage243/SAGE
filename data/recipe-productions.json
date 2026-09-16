@@ -1,0 +1,56 @@
+[
+  {
+    "id": "rpd_29w01n103l",
+    "number": "RP-2026-0001",
+    "recipeId": "rcp_traiteur_midi",
+    "recipeCode": "RCP-TRT-MIDI",
+    "recipeName": "Formule midi traiteur",
+    "outputProductId": "prd_traiteur_01",
+    "outputSku": "RST-TRT-MIDI",
+    "outputName": "Traiteur bureaux — formule midi",
+    "quantity": 5,
+    "warehouseId": "wh_limete_01",
+    "warehouseName": "Entrepôt Limete",
+    "totalCost": 14.655,
+    "unitCost": 2.931,
+    "sellingPrice": 6,
+    "revenue": 30,
+    "grossProfit": 15.345,
+    "marginPct": 51.15,
+    "currency": "USD",
+    "mode": "service",
+    "customerId": "cus_cantine_01",
+    "customerName": "Cantine Enterprise Solutions",
+    "producedAt": "2026-09-16T11:37:51.239Z",
+    "createdAt": "2026-09-16T11:37:51.239Z",
+    "ingredientLines": [
+      {
+        "productId": "prd_riz_25",
+        "sku": "VIV-RIZ-25",
+        "productName": "Riz parfumé 25 kg",
+        "quantity": 0.4,
+        "unitOfMeasure": "sac",
+        "unitCost": 30.5,
+        "lineCost": 12.2
+      },
+      {
+        "productId": "prd_huile_5",
+        "sku": "VIV-HUI-5L",
+        "productName": "Huile végétale 5 L",
+        "quantity": 0.2,
+        "unitOfMeasure": "bidon",
+        "unitCost": 10.2,
+        "lineCost": 2.04
+      },
+      {
+        "productId": "prd_msv_ali_kn_001",
+        "sku": "ALI-KN-001",
+        "productName": "Knorr — Cubes d'assaisonnement Bœuf (Boîte 60 pcs)",
+        "quantity": 0.25,
+        "unitOfMeasure": "boîte",
+        "unitCost": 1.66,
+        "lineCost": 0.415
+      }
+    ]
+  }
+]

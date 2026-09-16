@@ -14,6 +14,7 @@ const moveLabel: Record<string, string> = {
   transfer_out: "Transfert sortant",
   adjustment: "Ajustement",
   loss: "Perte / casse",
+  recipe_consumption: "Conso. recette",
   opening: "Stock d’ouverture",
 };
 

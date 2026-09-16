@@ -371,12 +371,12 @@
     "productName": "Huile végétale 5 L",
     "warehouseId": "wh_limete_01",
     "warehouseName": "Entrepôt Limete",
-    "quantityOnHand": 45,
+    "quantityOnHand": 44.8,
     "unitOfMeasure": "bidon",
     "averageUnitCost": 10.2,
     "currency": "USD",
     "reorderLevel": 100,
-    "updatedAt": "2026-09-15T17:01:51.635Z"
+    "updatedAt": "2026-09-16T11:37:51.263Z"
   },
   {
     "id": "bal_iwkxfk5toz",
@@ -413,12 +413,12 @@
     "productName": "Knorr — Cubes d'assaisonnement Bœuf (Boîte 60 pcs)",
     "warehouseId": "wh_limete_01",
     "warehouseName": "Entrepôt Limete",
-    "quantityOnHand": 128,
+    "quantityOnHand": 127.75,
     "unitOfMeasure": "boîte",
     "averageUnitCost": 1.66,
     "currency": "USD",
     "reorderLevel": 64,
-    "updatedAt": "2026-09-15T17:10:32.000Z"
+    "updatedAt": "2026-09-16T11:37:51.275Z"
   },
   {
     "id": "bal_hmm03i5toz",
@@ -721,12 +721,12 @@
     "productName": "Riz parfumé 25 kg",
     "warehouseId": "wh_limete_01",
     "warehouseName": "Entrepôt Limete",
-    "quantityOnHand": 120,
+    "quantityOnHand": 119.6,
     "unitOfMeasure": "sac",
     "averageUnitCost": 30.5,
     "currency": "USD",
     "reorderLevel": 60,
-    "updatedAt": "2026-09-15T17:01:51.635Z"
+    "updatedAt": "2026-09-16T11:37:51.244Z"
   },
   {
     "id": "bal_l5w7jz5toz",

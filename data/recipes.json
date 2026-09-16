@@ -1,0 +1,84 @@
+[
+  {
+    "id": "rcp_panier_sem",
+    "code": "RCP-PAN-SEM",
+    "name": "Assemblage panier vivres semaine",
+    "description": "Préparation panier distribution urbaine à partir du stock vivres.",
+    "outputProductId": "prd_panier_01",
+    "outputSku": "VIV-PAN-SEM",
+    "outputName": "Panier vivres urbains (semaine)",
+    "outputKind": "product",
+    "category": "autre",
+    "warehouseId": "wh_limete_01",
+    "warehouseName": "Entrepôt Limete",
+    "status": "active",
+    "ingredients": [
+      {
+        "id": "ri_k6dau90zuu",
+        "productId": "prd_riz_25",
+        "sku": "VIV-RIZ-25",
+        "productName": "Riz parfumé 25 kg",
+        "quantityPerOutput": 0.2,
+        "unitOfMeasure": "sac"
+      },
+      {
+        "id": "ri_khdxfa0zuu",
+        "productId": "prd_huile_5",
+        "sku": "VIV-HUI-5L",
+        "productName": "Huile végétale 5 L",
+        "quantityPerOutput": 0.25,
+        "unitOfMeasure": "bidon"
+      }
+    ],
+    "theoreticalCost": 8.65,
+    "sellingPrice": 45,
+    "currency": "USD",
+    "createdAt": "2026-09-16T11:37:50.982Z",
+    "updatedAt": "2026-09-16T11:37:51.089Z"
+  },
+  {
+    "id": "rcp_traiteur_midi",
+    "code": "RCP-TRT-MIDI",
+    "name": "Formule midi traiteur",
+    "description": "Repas chaud bureaux — consommation stock riz / huile / assaisonnement par couvert.",
+    "outputProductId": "prd_traiteur_01",
+    "outputSku": "RST-TRT-MIDI",
+    "outputName": "Traiteur bureaux — formule midi",
+    "outputKind": "service",
+    "category": "traiteur",
+    "warehouseId": "wh_limete_01",
+    "warehouseName": "Entrepôt Limete",
+    "status": "active",
+    "ingredients": [
+      {
+        "id": "ri_yfoza80zuu",
+        "productId": "prd_riz_25",
+        "sku": "VIV-RIZ-25",
+        "productName": "Riz parfumé 25 kg",
+        "quantityPerOutput": 0.08,
+        "unitOfMeasure": "sac"
+      },
+      {
+        "id": "ri_6no4i90zuu",
+        "productId": "prd_huile_5",
+        "sku": "VIV-HUI-5L",
+        "productName": "Huile végétale 5 L",
+        "quantityPerOutput": 0.04,
+        "unitOfMeasure": "bidon"
+      },
+      {
+        "id": "ri_swfbmx0zuu",
+        "productId": "prd_msv_ali_kn_001",
+        "sku": "ALI-KN-001",
+        "productName": "Knorr — Cubes d'assaisonnement Bœuf (Boîte 60 pcs)",
+        "quantityPerOutput": 0.05,
+        "unitOfMeasure": "boîte"
+      }
+    ],
+    "theoreticalCost": 2.931,
+    "sellingPrice": 6,
+    "currency": "USD",
+    "createdAt": "2026-09-16T11:37:50.982Z",
+    "updatedAt": "2026-09-16T11:37:51.239Z"
+  }
+]

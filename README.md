@@ -21,6 +21,7 @@ See [`docs/SAGE_PHASE0_AUDIT.md`](docs/SAGE_PHASE0_AUDIT.md) for KEEP/IMPROVE/ME
 - **Achats** — bons de commande → approbation → réception (GRN)
 - **Stock** — soldes par entrepôt, mouvements, ajustements / pertes
 - **Ventes** — devis → commande (réservation) → livraison (sortie + coût figé) → facture → paiement
+- **Recettes** — restauration/boissons : BOM → consommation stock à chaque service
 - **Rentabilité** — marges réalisées par produit / client / activité + catalogue théorique
 - **Tableau de bord** — KPIs CA, stock, AR, AP, encaissements USD/CDF
 - **Correspondances** — courriers commerciaux (ex. SAGE-RDC/DG/2026/001 → MARSAVCO)
@@ -51,6 +52,7 @@ Next.js · TypeScript · Tailwind · shadcn/ui · JSON stores (Postgres planned)
 - `data/purchase-orders.json`, `goods-receipts.json`
 - `data/stock-balances.json`, `stock-movements.json`
 - `data/quotations.json`, `sales-orders.json`, `deliveries.json`, `invoices.json`, `payments.json`
+- `data/recipes.json`, `recipe-productions.json`
 - `data/correspondences.json` — courriers fournisseurs (DOCX dans `public/correspondances/`)
 - `data/inquiries.json` — legacy leads (to merge into sales quotations)
 - `data/products.json` — legacy catalogue (superseded by products-master)

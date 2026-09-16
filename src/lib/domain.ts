@@ -156,7 +156,8 @@ export type StockMovementType =
   | "transfer_out"
   | "adjustment"
   | "loss"
-  | "opening";
+  | "opening"
+  | "recipe_consumption";
 
 export interface PurchaseOrderLine {
   id: string;
@@ -242,7 +243,14 @@ export interface StockMovement {
   unitOfMeasure: string;
   unitCost: number;
   currency: CurrencyCode;
-  referenceType?: "purchase_order" | "goods_receipt" | "adjustment" | "opening" | "sales_order" | "delivery";
+  referenceType?:
+    | "purchase_order"
+    | "goods_receipt"
+    | "adjustment"
+    | "opening"
+    | "sales_order"
+    | "delivery"
+    | "recipe";
   referenceId?: string;
   referenceNumber?: string;
   reason?: string;
@@ -425,4 +433,75 @@ export interface Payment {
   paidAt: string;
   notes?: string;
   createdAt: string;
+}
+
+/** Phase 6 — restaurant / bar recipe (BOM) */
+export interface RecipeIngredient {
+  id: string;
+  productId: string;
+  sku: string;
+  productName: string;
+  /** Quantity of ingredient consumed per 1 output unit */
+  quantityPerOutput: number;
+  unitOfMeasure: string;
+}
+
+export interface Recipe {
+  id: string;
+  code: string;
+  name: string;
+  description?: string;
+  /** Finished dish / drink / service sold */
+  outputProductId: string;
+  outputSku: string;
+  outputName: string;
+  outputKind: ProductKind;
+  category: "plat" | "boisson" | "traiteur" | "autre";
+  warehouseId: string;
+  warehouseName: string;
+  status: "active" | "draft" | "archived";
+  ingredients: RecipeIngredient[];
+  /** Theoretical cost = sum(ingredient CMP × qty) — refreshed on read/produce */
+  theoreticalCost: number;
+  sellingPrice: number;
+  currency: CurrencyCode;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface RecipeProduction {
+  id: string;
+  number: string;
+  recipeId: string;
+  recipeCode: string;
+  recipeName: string;
+  outputProductId: string;
+  outputSku: string;
+  outputName: string;
+  quantity: number;
+  warehouseId: string;
+  warehouseName: string;
+  /** Sum of frozen ingredient costs for this run */
+  totalCost: number;
+  unitCost: number;
+  sellingPrice: number;
+  revenue: number;
+  grossProfit: number;
+  marginPct: number;
+  currency: CurrencyCode;
+  mode: "service" | "prep";
+  notes?: string;
+  customerId?: string;
+  customerName?: string;
+  producedAt: string;
+  createdAt: string;
+  ingredientLines: {
+    productId: string;
+    sku: string;
+    productName: string;
+    quantity: number;
+    unitOfMeasure: string;
+    unitCost: number;
+    lineCost: number;
+  }[];
 }
