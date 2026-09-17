@@ -17,11 +17,11 @@ const body = Source_Sans_3({
 
 export const metadata: Metadata = {
   title: {
-    default: "SAGE SARL — Save Africa Group for Excellence",
+    default: "SAGE SARL — Excellence · Intégrité · Innovation · Impact",
     template: "%s · SAGE SARL",
   },
   description:
-    "Plateforme corporate de SAVE AFRICA GROUP FOR EXCELLENCE (SAGE SARL) pour gérer et commercialiser les produits et services issus de l’objet social (Article 2).",
+    "Plateforme corporate de SAVE AFRICA GROUP FOR EXCELLENCE (SAGE SARL) — Excellence · Intégrité · Innovation · Impact. Gestion et commercialisation des produits et services issus de l’objet social (Article 2).",
   icons: {
     icon: [{ url: "/brand/favicon-32.png", sizes: "32x32", type: "image/png" }],
     apple: [{ url: "/brand/apple-touch-icon.png", sizes: "180x180" }],
