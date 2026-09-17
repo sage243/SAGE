@@ -52,45 +52,45 @@
 }
 
 :root {
-  /* Brand blue C100 M30 J0 N10 (= #00A1E6) + gold excellence */
-  --brand-cmyk: cmyk(100%, 30%, 0%, 10%);
-  --sage: #00a1e6;
+  /* Letterhead brand: navy + leaf green (Africa / growth) */
+  --sage: #0b5ea8;
   --sage-deep: #003a66;
-  --copper: #d4a017;
+  --sage-green: #24b833;
+  --copper: #24b833;
   --sand: #f3efe6;
-  --river: #00a1e6;
+  --river: #0b5ea8;
   --background: #f5f8fb;
   --foreground: #0b1c2c;
   --card: #ffffff;
   --card-foreground: #0b1c2c;
   --popover: #ffffff;
   --popover-foreground: #0b1c2c;
-  --primary: #00a1e6;
+  --primary: #0b5ea8;
   --primary-foreground: #f5fbff;
   --secondary: #e6eef5;
   --secondary-foreground: #0b1c2c;
   --muted: #e8eef4;
   --muted-foreground: #5a6b78;
-  --accent: #d4a017;
-  --accent-foreground: #fffaf0;
+  --accent: #24b833;
+  --accent-foreground: #f5fff6;
   --destructive: #b42318;
   --border: #c9d5e0;
   --input: #c9d5e0;
-  --ring: #00a1e6;
-  --chart-1: #00a1e6;
-  --chart-2: #d4a017;
+  --ring: #0b5ea8;
+  --chart-1: #0b5ea8;
+  --chart-2: #24b833;
   --chart-3: #003a66;
-  --chart-4: #0080b8;
+  --chart-4: #1a8f2e;
   --chart-5: #5bb8e8;
   --radius: 0.5rem;
   --sidebar: #002b4d;
   --sidebar-foreground: #f3efe6;
-  --sidebar-primary: #d4a017;
+  --sidebar-primary: #24b833;
   --sidebar-primary-foreground: #002b4d;
-  --sidebar-accent: #00a1e6;
+  --sidebar-accent: #0b5ea8;
   --sidebar-accent-foreground: #f5fbff;
   --sidebar-border: #0a3d66;
-  --sidebar-ring: #d4a017;
+  --sidebar-ring: #24b833;
 }
 
 @layer base {
@@ -100,8 +100,8 @@
   body {
     @apply bg-background text-foreground antialiased;
     background-image:
-      radial-gradient(ellipse 80% 50% at 100% -10%, rgba(212, 160, 23, 0.12), transparent 55%),
-      radial-gradient(ellipse 60% 40% at -10% 20%, rgba(0, 161, 230, 0.12), transparent 50%),
+      radial-gradient(ellipse 80% 50% at 100% -10%, rgba(36, 184, 51, 0.10), transparent 55%),
+      radial-gradient(ellipse 60% 40% at -10% 20%, rgba(11, 94, 168, 0.12), transparent 50%),
       linear-gradient(180deg, #f5f8fb 0%, #eef3f8 100%);
     background-attachment: fixed;
   }

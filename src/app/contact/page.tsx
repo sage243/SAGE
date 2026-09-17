@@ -20,11 +20,11 @@ export default function ContactPage() {
           </h1>
         </div>
         <Image
-          src="/brand/sage-sceau.webp"
-          alt="Sceau officiel SAGE SARL"
+          src="/brand/sage-mark.webp"
+          alt="Marque SAGE SARL"
           width={120}
           height={120}
-          className="h-24 w-24 rounded-full bg-white object-contain p-1 shadow-sm ring-1 ring-primary/10"
+          className="h-24 w-24 rounded-full bg-white object-contain p-2 shadow-sm ring-1 ring-primary/10"
         />
       </div>
 
@@ -109,7 +109,7 @@ export default function ContactPage() {
               alt=""
               width={72}
               height={72}
-              className="mb-4 h-14 w-14 object-contain brightness-0 invert"
+              className="mb-4 h-14 w-14 rounded-full bg-white object-contain p-1.5"
             />
             <p className="font-display text-3xl font-semibold">Kinshasa — Gombe</p>
             <p className="mt-2 max-w-sm text-sm text-sand/80">

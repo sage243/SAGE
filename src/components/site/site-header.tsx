@@ -31,15 +31,15 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-primary/10 bg-[#f5f8fb]/90 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <Link href="/" className="group flex items-center gap-2.5" aria-label="SAGE — Accueil">
+      <div className="mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between gap-4 px-4 sm:h-20 sm:px-6">
+        <Link href="/" className="group flex min-w-0 items-center gap-2.5" aria-label="SAGE — Accueil">
           <Image
             src="/brand/sage-logo.webp"
-            alt="SAGE — Save Africa Group for Excellence"
-            width={220}
-            height={60}
+            alt="SAGE SARL — Excellence · Intégrité · Innovation · Impact"
+            width={320}
+            height={82}
             priority
-            className="h-10 w-auto object-contain object-left sm:h-11"
+            className="h-11 w-auto max-w-[min(100%,280px)] object-contain object-left sm:h-14 sm:max-w-[340px]"
           />
         </Link>
 

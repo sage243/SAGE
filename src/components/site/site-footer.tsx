@@ -12,13 +12,15 @@ export function SiteFooter() {
     <footer className="border-t border-primary/10 bg-sage-deep text-sand">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.5fr_1fr_0.9fr]">
         <div>
-          <Image
-            src="/brand/sage-logo.webp"
-            alt="SAGE — Save Africa Group for Excellence SARL"
-            width={280}
-            height={76}
-            className="h-14 w-auto object-contain object-left brightness-0 invert"
-          />
+          <div className="inline-block rounded-md bg-white px-3 py-2">
+            <Image
+              src="/brand/sage-logo.webp"
+              alt="SAGE SARL — Excellence · Intégrité · Innovation · Impact"
+              width={280}
+              height={72}
+              className="h-12 w-auto object-contain object-left sm:h-14"
+            />
+          </div>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-sand/75">
             SAVE AFRICA GROUP FOR EXCELLENCE — société à responsabilité limitée basée à
             Kinshasa (Gombe), régie par l’OHADA.
@@ -59,13 +61,13 @@ export function SiteFooter() {
           </ul>
         </div>
         <div className="flex flex-col items-start md:items-end">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-copper">Sceau</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-copper">Marque</p>
           <Image
-            src="/brand/sage-sceau.webp"
-            alt="Sceau SAGE SARL"
+            src="/brand/sage-mark.webp"
+            alt="Marque SAGE SARL"
             width={160}
             height={160}
-            className="mt-3 h-28 w-28 rounded-full bg-white object-contain p-1 shadow-sm md:h-32 md:w-32"
+            className="mt-3 h-28 w-28 rounded-full bg-white object-contain p-2 shadow-sm md:h-32 md:w-32"
           />
         </div>
       </div>
